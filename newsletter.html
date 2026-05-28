@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- UPDATED: inline expand, smaller card, poster slot -->
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" />
+<link rel="icon" type="image/png" href="Images/Logs/Image.png" />
 <style>
 
 /* ── RESET ── */
@@ -47,25 +48,39 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ── STICKY NAV ── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: 62px;
+  height: 70px;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 32px;
-  background: rgba(7,7,11,0.8);
+  padding: 0 24px;
+  background: rgba(7,7,11,0.88);
   backdrop-filter: saturate(180%) blur(18px);
   border-bottom: 1px solid var(--border);
 }
 .nav-brand {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+  display: flex; align-items: center; gap: 12px;
   cursor: pointer; user-select: none;
 }
-.nav-logo {
-  width: 30px; height: 30px; border-radius: 8px;
-  background: var(--brand); display: grid; place-items: center;
-  flex-shrink: 0;
+.nav-logo-img {
+  height: 44px; width: auto; display: block; object-fit: contain;
+  mix-blend-mode: screen;
 }
-.nav-logo i { color: #fff; font-size: 16px; }
-.nav-product { font-size: 11px; color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase; margin-top: 1px; font-weight: 500; }
+.nav-divider {
+  width: 1px; height: 28px; background: var(--border);
+}
+.nav-right {
+  display: flex; align-items: center; justify-content: flex-end; gap: 12px;
+}
+.nav-release {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 4px 13px; border-radius: 999px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  color: var(--muted); font-size: 12px; font-weight: 500; white-space: nowrap;
+}
+.nav-release .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 3px rgba(232,69,42,0.22);
+  animation: glow 2s infinite; flex-shrink: 0;
+}
 .nav-bc {
   display: flex; align-items: center; gap: 6px;
   font-size: 13px; color: var(--muted);
@@ -79,7 +94,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-bc .bc-current { color: var(--text); font-weight: 600; }
 
 /* ── VIEWS ── */
-.view { display: none; min-height: calc(100vh - 62px); padding-top: 62px; }
+.view { display: none; min-height: calc(100vh - 70px); padding-top: 70px; }
 .view.active { display: block; animation: fadeUp 0.36s cubic-bezier(0.4,0,0.2,1); }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
@@ -262,7 +277,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 8px 16px; border-radius: 999px;
   border: 1px solid var(--border);
   transition: color 0.15s, border-color 0.15s;
-  margin-bottom: 44px;
 }
 .back-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.18); }
 .back-btn i { font-size: 14px; }
@@ -329,11 +343,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ══════════════════════════════════
    FEATURE DETAIL VIEW
 ══════════════════════════════════ */
-.fdv { max-width: 780px; margin: 0 auto; padding: 44px 24px 100px; }
+.fdv { max-width: 780px; margin: 0 auto; padding: 28px 24px 100px; }
 
 .fdv-toprow {
   display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px; margin-bottom: 40px;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 28px;
 }
 .fdv-nav-btns { display: flex; gap: 8px; }
 .fdv-nav-btn {
@@ -421,7 +435,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .shot:hover { transform: scale(1.014); box-shadow: 0 28px 80px rgba(0,0,0,0.65); }
 .shot img { width: 100%; display: block; }
 .shot-cap {
-  padding: 9px 16px 13px; font-size: 12px; color: var(--dim); font-style: italic; text-align: center;
+  padding: 9px 16px 13px; font-size: 12px; color: #9090a8; font-style: italic; text-align: center;
   border-top: 1px solid var(--border-2);
 }
 .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
@@ -512,27 +526,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .poster-ph i { font-size: 26px; opacity: 0.3; display: block; margin-bottom: 7px; }
 .poster-ph p { font-size: 11px; opacity: 0.4; }
-.feature-list { display: flex; flex-direction: column; gap: 10px; }
+.feature-list { display: flex; flex-direction: column; gap: 16px; }
 .fl-item {
-  display: flex; align-items: center; gap: 16px;
+  display: flex; align-items: center; gap: 20px;
   background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
-  border: 1px solid var(--border); border-radius: 14px;
-  padding: 16px 18px;
+  border: 1px solid var(--border); border-radius: 16px;
+  padding: 22px 24px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .fl-item:hover { border-color: rgba(232,69,42,0.3); box-shadow: 0 4px 18px rgba(232,69,42,0.07); }
 .fl-icon {
-  width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0;
+  width: 48px; height: 48px; border-radius: 13px; flex-shrink: 0;
   background: var(--brand-dim); border: 1px solid rgba(232,69,42,0.2);
   display: grid; place-items: center;
 }
-.fl-icon i { color: var(--brand); font-size: 19px; }
+.fl-icon i { color: var(--brand); font-size: 22px; }
 .fl-body { flex: 1; min-width: 0; }
 .fl-num { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand); margin-bottom: 2px; }
-.fl-title { font-size: 14px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 3px; }
-.fl-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
-.fl-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
-.fl-tag { font-size: 10px; color: var(--dim); background: rgba(255,255,255,0.04); border: 1px solid var(--border-2); border-radius: 999px; padding: 2px 8px; }
+.fl-title { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 5px; }
+.fl-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.fl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.fl-tag { font-size: 10px; color: #b0b0c4; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; padding: 2px 8px; }
 .fl-explore {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: 12px; font-weight: 700; color: #fff;
@@ -632,14 +646,18 @@ footer a:hover { color: var(--text); }
 
 <!-- ── NAV ── -->
 <nav class="nav">
+  <!-- Left: both logos -->
   <div class="nav-brand" onclick="showHub()">
-    <div class="nav-logo"><i class="ti ti-sparkles"></i></div>
-    <div>
-      <div>EngageAI</div>
-      <div class="nav-product">iNextLabs · Newsletter</div>
-    </div>
+    <img class="nav-logo-img" src="Images/Logs/inextlabs logo (1).webp" alt="iNextLabs" />
+    <div class="nav-divider"></div>
+    <img class="nav-logo-img" src="Images/Logs/Image.png" alt="EngageAI" />
   </div>
-  <div class="nav-bc" id="nav-bc"></div>
+
+  <!-- Right: 2026 release pill + breadcrumb -->
+  <div class="nav-right">
+    <div class="nav-release"><span class="dot"></span>2026 Product Releases</div>
+    <div class="nav-bc" id="nav-bc"></div>
+  </div>
 </nav>
 
 <!-- ══════════════════════════════════
@@ -649,7 +667,9 @@ footer a:hover { color: var(--text); }
   <section class="hub">
 
     <div class="hub-hero">
-      <div class="eyebrow"><span class="dot"></span>2026 Product Releases</div>
+      <div style="display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
+        <img src="Images/Logs/Image.png" alt="EngageAI Icon" style="height:90px; width:auto; mix-blend-mode:screen;" />
+      </div>
       <h1 class="hub-title">EngageAI<br/><em>Product Newsletter</em></h1>
       <p class="hub-sub">Monthly product release digests from the EngageAI team — features, enhancements, and a look at what's coming next.</p>
     </div>
@@ -702,7 +722,6 @@ footer a:hover { color: var(--text); }
           <div class="fl-item">
             <div class="fl-icon"><i class="ti ti-phone-call"></i></div>
             <div class="fl-body">
-              <div class="fl-num">Feature 01</div>
               <div class="fl-title">WhatsApp Calling</div>
               <div class="fl-desc">Secure, consent-driven man-to-man voice calling with call logs, recordings, transcripts, and AI summaries — all inside your enterprise workflow.</div>
               <div class="fl-tags">
@@ -717,7 +736,6 @@ footer a:hover { color: var(--text); }
           <div class="fl-item">
             <div class="fl-icon"><i class="ti ti-tags"></i></div>
             <div class="fl-body">
-              <div class="fl-num">Feature 02</div>
               <div class="fl-title">Smart Tag Management</div>
               <div class="fl-desc">Organize and retrieve customer conversations instantly using contact and message-level tags with color coding and powerful search.</div>
               <div class="fl-tags">
@@ -732,7 +750,6 @@ footer a:hover { color: var(--text); }
           <div class="fl-item">
             <div class="fl-icon"><i class="ti ti-shopping-cart"></i></div>
             <div class="fl-body">
-              <div class="fl-num">Feature 03</div>
               <div class="fl-title">Smart Ordering</div>
               <div class="fl-desc">Turn WhatsApp, Instagram, and Messenger into a fully automated ordering engine — catalog, AI discovery, promotions, and delivery in one platform.</div>
               <div class="fl-tags">
@@ -747,7 +764,6 @@ footer a:hover { color: var(--text); }
           <div class="fl-item">
             <div class="fl-icon"><i class="ti ti-brain"></i></div>
             <div class="fl-body">
-              <div class="fl-num">Feature 04</div>
               <div class="fl-title">AI Configuration Hub</div>
               <div class="fl-desc">Centralized command center to manage, configure, and govern all AI-powered capabilities with full model transparency and enterprise governance.</div>
               <div class="fl-tags">
@@ -798,7 +814,7 @@ const FEATURES = {
 
   'whatsapp-calling': {
     num: '01', prev: null, next: 'smart-tags',
-    badge: 'Feature 01 · Released',
+    badge: 'Released',
     title: 'WhatsApp Calling',
     sub: 'Conversations are evolving. EngageAI now brings <strong>secure, consent-driven voice interactions</strong> directly into enterprise workflows — not just calling, but conversational engagement engineered for the future.',
     render: () => `
@@ -848,14 +864,14 @@ const FEATURES = {
       </div>
 
       <div class="fdv-section">
-        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Real-World Impact</div>
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business Outcomes</div>
         <div class="vcards">
-          ${vc('<i class="ti ti-building-hospital"></i>','Healthcare','Secure patient follow-ups with compliance and full conversational context.')}
-          ${vc('<i class="ti ti-building-bank"></i>','Banking','High-value interactions with consent-driven calling and audit trails.')}
-          ${vc('<i class="ti ti-target"></i>','Sales Teams','Improve conversion with direct, contextual voice outreach.')}
-          ${vc('<i class="ti ti-lock"></i>','Privacy-First','Enterprise-grade architecture built for regulatory compliance.')}
-          ${vc('<i class="ti ti-bolt"></i>','Enterprise Scale','Designed for high-volume concurrent call operations.')}
-          ${vc('<i class="ti ti-brain"></i>','AI-Powered','Auto-transcription and AI-generated call summaries on every call.')}
+          ${vc('<i class="ti ti-trending-up"></i>','Higher Conversion','Voice builds trust faster than text — close deals, resolve issues, and collect consents in a single real-time call.')}
+          ${vc('<i class="ti ti-clock"></i>','Faster Resolution','Agents resolve complex queries on a call in minutes instead of multi-message chat threads that take hours.')}
+          ${vc('<i class="ti ti-user-check"></i>','Stronger Relationships','Personal voice contact deepens customer trust and loyalty far beyond automated chat interactions.')}
+          ${vc('<i class="ti ti-shield-check"></i>','Zero Compliance Risk','Consent capture, call recordings, and audit trails ensure every call is fully compliant and defensible.')}
+          ${vc('<i class="ti ti-brain"></i>','Zero Manual Notes','AI-generated transcripts and summaries mean agents never write call notes — context is always captured automatically.')}
+          ${vc('<i class="ti ti-layout-dashboard"></i>','Unified Workspace','Calls, chats, transcripts, and summaries all live in one platform — no tool-switching, no lost context.')}
         </div>
       </div>
 
@@ -868,7 +884,7 @@ const FEATURES = {
 
   'smart-tags': {
     num: '02', prev: 'whatsapp-calling', next: 'smart-ordering',
-    badge: 'Feature 02 · Released',
+    badge: 'Released',
     title: 'Smart Tag Management',
     sub: 'Managing customer interactions becomes significantly easier when teams can <strong>instantly identify important customers</strong>, classify conversations, and retrieve critical messages without searching through endless chat history.',
     render: () => `
@@ -960,7 +976,7 @@ const FEATURES = {
 
   'smart-ordering': {
     num: '03', prev: 'smart-tags', next: 'ai-hub',
-    badge: 'Feature 03 · Released',
+    badge: 'Released',
     title: 'Smart Ordering',
     sub: '<strong>EngageAI Smart Ordering</strong> transforms WhatsApp, Instagram, Facebook Messenger, and AI-powered chat into a fully automated digital ordering engine — complete control over products, availability, promotions, and delivery from one platform.',
     render: () => `
@@ -1051,7 +1067,7 @@ const FEATURES = {
 
   'ai-hub': {
     num: '04', prev: 'smart-ordering', next: null,
-    badge: 'Feature 04 · Released',
+    badge: 'Released',
     title: 'AI Configuration Hub',
     sub: 'AI should feel <strong>powerful, transparent, and configurable</strong> — not just another feature. The AI Configuration Hub transforms AI from a background utility into a visible, configurable intelligence layer across the entire EngageAI platform.',
     render: () => `
@@ -1064,7 +1080,7 @@ const FEATURES = {
           ${bl('Feature-by-Feature Scale','Adopt AI incrementally — on your timeline, at your pace')}
           ${bl('Enterprise Governance','Structured AI administration built for enterprise teams')}
         </div>
-        ${shot('2026-05/Images/inflow-memory/image.png','AI Configuration Hub — all AI capabilities in one unified view')}
+        ${shot('Images/inflow-memory/image.png','AI Configuration Hub — all AI capabilities in one unified view')}
       </div>
 
       <div class="fdv-section">
