@@ -10,8 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" />
-<link rel="icon" type="image/png" href="Images/Logs/Image.png" />
-<style>
+Consent-Driven Permission Flow<style>
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,21 +49,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 70px;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 24px;
-  background: rgba(7,7,11,0.88);
+  padding: 0 28px;
+  background: rgba(7,7,11,0.92);
   backdrop-filter: saturate(180%) blur(18px);
   border-bottom: 1px solid var(--border);
 }
 .nav-brand {
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 20px;
   cursor: pointer; user-select: none;
 }
 .nav-logo-img {
-  height: 44px; width: auto; display: block; object-fit: contain;
+  height: 40px;
+  display: block;
   mix-blend-mode: screen;
+  object-fit: cover;
+  object-position: left center;
+  flex-shrink: 0;
 }
+/* iNextLabs – wide image, content fills ~45% of width; crop trailing space */
+.nav-brand img:first-of-type { width: 140px; }
+/* EngageAI – landscape, content fills ~80% of width */
+.nav-brand img:last-of-type  { width: 130px; }
 .nav-divider {
-  width: 1px; height: 28px; background: var(--border);
+  width: 1px; height: 40px; background: var(--border); flex-shrink: 0;
 }
 .nav-right {
   display: flex; align-items: center; justify-content: flex-end; gap: 12px;
@@ -431,14 +438,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: 0 20px 60px rgba(0,0,0,0.55);
   cursor: zoom-in;
   transition: transform 0.22s, box-shadow 0.22s;
+  display: flex; flex-direction: column;
 }
 .shot:hover { transform: scale(1.014); box-shadow: 0 28px 80px rgba(0,0,0,0.65); }
-.shot img { width: 100%; display: block; }
+.shot img { width: 100%; display: block; flex: 1; object-fit: cover; }
 .shot-cap {
   padding: 9px 16px 13px; font-size: 12px; color: #9090a8; font-style: italic; text-align: center;
-  border-top: 1px solid var(--border-2);
+  border-top: 1px solid var(--border-2); flex-shrink: 0;
 }
-.shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
+.shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; align-items: stretch; }
 @media (max-width: 560px) { .shot-grid { grid-template-columns: 1fr; } }
 .shot-grid .shot { margin: 0; }
 
@@ -648,14 +656,13 @@ footer a:hover { color: var(--text); }
 <nav class="nav">
   <!-- Left: both logos -->
   <div class="nav-brand" onclick="showHub()">
-    <img class="nav-logo-img" src="Images/Logs/inextlabs logo (1).webp" alt="iNextLabs" />
+    <img class="nav-logo-img" src="Images/Logs/iNextLabs white logo.png" alt="iNextLabs" />
     <div class="nav-divider"></div>
-    <img class="nav-logo-img" src="Images/Logs/Image.png" alt="EngageAI" />
+    <img class="nav-logo-img" src="Images/Logs/EngageAI Logo.png" alt="EngageAI" />
   </div>
 
-  <!-- Right: 2026 release pill + breadcrumb -->
+  <!-- Right: breadcrumb -->
   <div class="nav-right">
-    <div class="nav-release"><span class="dot"></span>2026 Product Releases</div>
     <div class="nav-bc" id="nav-bc"></div>
   </div>
 </nav>
@@ -667,9 +674,6 @@ footer a:hover { color: var(--text); }
   <section class="hub">
 
     <div class="hub-hero">
-      <div style="display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
-        <img src="Images/Logs/Image.png" alt="EngageAI Icon" style="height:90px; width:auto; mix-blend-mode:screen;" />
-      </div>
       <h1 class="hub-title">EngageAI<br/><em>Product Newsletter</em></h1>
       <p class="hub-sub">Monthly product release digests from the EngageAI team — features, enhancements, and a look at what's coming next.</p>
     </div>
@@ -834,7 +838,7 @@ const FEATURES = {
 
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-lock"></i> Consent-Driven Permission Flow</div>
-        <p class="fdv-p">Before initiating any call, agents request customer consent through the platform. Customers choose <strong>Always Allow</strong>, <strong>Temporarily Allow</strong>, or <strong>Not at this time</strong> — privacy-first by design.</p>
+        <p class="fdv-p">Before initiating any call, Human agents request customer consent through the platform. Customers choose <strong>Always Allow</strong>, <strong>Temporarily Allow</strong>, or <strong>Not at this time</strong> — privacy-first by design.</p>
         ${shot('Images/Whatsapp-call/Call_Permission_Request.png','Call Permission Request — agents request consent before initiating outbound calls')}
       </div>
 
@@ -867,8 +871,8 @@ const FEATURES = {
         <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business Outcomes</div>
         <div class="vcards">
           ${vc('<i class="ti ti-trending-up"></i>','Higher Conversion','Voice builds trust faster than text — close deals, resolve issues, and collect consents in a single real-time call.')}
-          ${vc('<i class="ti ti-clock"></i>','Faster Resolution','Agents resolve complex queries on a call in minutes instead of multi-message chat threads that take hours.')}
-          ${vc('<i class="ti ti-user-check"></i>','Stronger Relationships','Personal voice contact deepens customer trust and loyalty far beyond automated chat interactions.')}
+          ${vc('<i class="ti ti-clock"></i>','Faster Resolution','Complex queries get resolved in one call — agents have the full chat context, so nothing needs to be repeated.')}
+          ${vc('<i class="ti ti-user-check"></i>','Stronger Relationships','Personal voice contact deepens customer trust and loyalty — no spam flags, no blocked calls, no confusion.')}
           ${vc('<i class="ti ti-shield-check"></i>','Zero Compliance Risk','Consent capture, call recordings, and audit trails ensure every call is fully compliant and defensible.')}
           ${vc('<i class="ti ti-brain"></i>','Zero Manual Notes','AI-generated transcripts and summaries mean agents never write call notes — context is always captured automatically.')}
           ${vc('<i class="ti ti-layout-dashboard"></i>','Unified Workspace','Calls, chats, transcripts, and summaries all live in one platform — no tool-switching, no lost context.')}
