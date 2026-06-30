@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EngageAI · Product Newsletter · 2026 · v2</title>
-<meta name="description" content="EngageAI monthly product release digest — May 2026 features and beyond." />
+<meta name="description" content="EngageAI monthly product release digest — June 2026 features and beyond." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -648,7 +648,7 @@ footer a:hover { color: var(--text); }
   <div class="nav-brand" onclick="showHub()">
     <img class="nav-logo-img" src="Images/Logs/iNextLabs white logo.png" alt="iNextLabs" />
     <div class="nav-divider"></div>
-    <img class="nav-logo-img" src="Images/Logs/EngageAI Logo.png" alt="EngageAI" />
+    <img class="nav-logo-img" src="Images/Logs/EngageAI white logo.png" alt="EngageAI" />
   </div>
 
   <!-- Right: breadcrumb -->
@@ -679,13 +679,120 @@ footer a:hover { color: var(--text); }
         <i class="ti ti-chevron-right mc-chevron"></i>
       </div>
 
-      <!-- June 2026 — SOON -->
-      <div class="mc soon">
+      <!-- ── MAY 2026 INLINE EXPAND ── -->
+      <div class="may-expand" id="may-expand">
+        <div class="may-expand-inner">
+
+          <!-- Header -->
+          <div class="expand-header">
+            <div>
+              <div class="expand-kicker">May 2026 · Release Digest</div>
+              <div class="expand-sub">What shipped this month</div>
+            </div>
+            <div class="expand-count">4 features shipped</div>
+          </div>
+
+          <!-- Feature list — horizontal rows -->
+          <div class="feature-list">
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-phone-call"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">WhatsApp Calling</div>
+                <div class="fl-desc">Secure, consent-driven man-to-man voice calling with call logs, recordings, transcripts, and AI summaries — all inside your enterprise workflow.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Consent-driven</span>
+                  <span class="fl-tag">Call Logs</span>
+                  <span class="fl-tag">AI Summaries</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('whatsapp-calling')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-tags"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Smart Tag Management</div>
+                <div class="fl-desc">Organize and retrieve customer conversations instantly using contact and message-level tags with color coding and powerful search.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Contact Tags</span>
+                  <span class="fl-tag">Message Tags</span>
+                  <span class="fl-tag">Smart Search</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('smart-tags')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-shopping-cart"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Smart Ordering</div>
+                <div class="fl-desc">Turn WhatsApp, Instagram, and Messenger into a fully automated ordering engine — catalog, AI discovery, promotions, and delivery in one platform.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Unified Catalog</span>
+                  <span class="fl-tag">AI Discovery</span>
+                  <span class="fl-tag">Delivery Rules</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('smart-ordering')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-brain"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">AI Configuration Hub</div>
+                <div class="fl-desc">Centralized command center to manage, configure, and govern all AI-powered capabilities with full model transparency and enterprise governance.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">AI Governance</span>
+                  <span class="fl-tag">Model Visibility</span>
+                  <span class="fl-tag">Ask AI</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('ai-hub')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+          </div><!-- /feature-list -->
+        </div><!-- /may-expand-inner -->
+      </div><!-- /may-expand -->
+
+      <!-- June 2026 — LIVE -->
+      <div class="mc live" id="mc-june" onclick="toggleJune()">
         <div class="mc-m">Jun</div>
         <div class="mc-y">2026</div>
-        <div class="mc-badge">Coming Soon</div>
-        <div class="mc-desc">Stay tuned</div>
+        <div class="mc-badge"><span class="live-dot"></span>&nbsp;Live</div>
+        <div class="mc-desc">1 feature shipped</div>
+        <i class="ti ti-chevron-right mc-chevron"></i>
       </div>
+
+      <!-- ── JUNE 2026 INLINE EXPAND ── -->
+      <div class="may-expand" id="june-expand">
+        <div class="may-expand-inner">
+
+          <div class="expand-header">
+            <div>
+              <div class="expand-kicker">June 2026 · Release Digest</div>
+              <div class="expand-sub">What shipped this month</div>
+            </div>
+            <div class="expand-count">1 feature shipped</div>
+          </div>
+
+          <div class="feature-list">
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-at"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Collaborate Instantly with Bring Someone In (@Mention)</div>
+                <div class="fl-desc">LiveAgents can instantly mention another team member within an active customer conversation to collaborate without transferring chat ownership.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Mentions Inbox</span>
+                  <span class="fl-tag">Cross-Team Collaboration</span>
+                  <span class="fl-tag">No Ownership Transfer</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('bring-someone-in')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div><!-- /june-expand -->
 
       <!-- July 2026 — SOON -->
       <div class="mc soon">
@@ -696,82 +803,6 @@ footer a:hover { color: var(--text); }
       </div>
 
     </div><!-- /months-row -->
-
-    <!-- ── MAY 2026 INLINE EXPAND ── -->
-    <div class="may-expand" id="may-expand">
-      <div class="may-expand-inner">
-
-        <!-- Header -->
-        <div class="expand-header">
-          <div>
-            <div class="expand-kicker">May 2026 · Release Digest</div>
-            <div class="expand-sub">What shipped this month</div>
-          </div>
-          <div class="expand-count">4 features shipped</div>
-        </div>
-
-        <!-- Feature list — horizontal rows -->
-        <div class="feature-list">
-
-          <div class="fl-item">
-            <div class="fl-icon"><i class="ti ti-phone-call"></i></div>
-            <div class="fl-body">
-              <div class="fl-title">WhatsApp Calling</div>
-              <div class="fl-desc">Secure, consent-driven man-to-man voice calling with call logs, recordings, transcripts, and AI summaries — all inside your enterprise workflow.</div>
-              <div class="fl-tags">
-                <span class="fl-tag">Consent-driven</span>
-                <span class="fl-tag">Call Logs</span>
-                <span class="fl-tag">AI Summaries</span>
-              </div>
-            </div>
-            <button class="fl-explore" onclick="showFeature('whatsapp-calling')">Explore <i class="ti ti-arrow-right"></i></button>
-          </div>
-
-          <div class="fl-item">
-            <div class="fl-icon"><i class="ti ti-tags"></i></div>
-            <div class="fl-body">
-              <div class="fl-title">Smart Tag Management</div>
-              <div class="fl-desc">Organize and retrieve customer conversations instantly using contact and message-level tags with color coding and powerful search.</div>
-              <div class="fl-tags">
-                <span class="fl-tag">Contact Tags</span>
-                <span class="fl-tag">Message Tags</span>
-                <span class="fl-tag">Smart Search</span>
-              </div>
-            </div>
-            <button class="fl-explore" onclick="showFeature('smart-tags')">Explore <i class="ti ti-arrow-right"></i></button>
-          </div>
-
-          <div class="fl-item">
-            <div class="fl-icon"><i class="ti ti-shopping-cart"></i></div>
-            <div class="fl-body">
-              <div class="fl-title">Smart Ordering</div>
-              <div class="fl-desc">Turn WhatsApp, Instagram, and Messenger into a fully automated ordering engine — catalog, AI discovery, promotions, and delivery in one platform.</div>
-              <div class="fl-tags">
-                <span class="fl-tag">Unified Catalog</span>
-                <span class="fl-tag">AI Discovery</span>
-                <span class="fl-tag">Delivery Rules</span>
-              </div>
-            </div>
-            <button class="fl-explore" onclick="showFeature('smart-ordering')">Explore <i class="ti ti-arrow-right"></i></button>
-          </div>
-
-          <div class="fl-item">
-            <div class="fl-icon"><i class="ti ti-brain"></i></div>
-            <div class="fl-body">
-              <div class="fl-title">AI Configuration Hub</div>
-              <div class="fl-desc">Centralized command center to manage, configure, and govern all AI-powered capabilities with full model transparency and enterprise governance.</div>
-              <div class="fl-tags">
-                <span class="fl-tag">AI Governance</span>
-                <span class="fl-tag">Model Visibility</span>
-                <span class="fl-tag">Ask AI</span>
-              </div>
-            </div>
-            <button class="fl-explore" onclick="showFeature('ai-hub')">Explore <i class="ti ti-arrow-right"></i></button>
-          </div>
-
-        </div><!-- /feature-list -->
-      </div><!-- /may-expand-inner -->
-    </div><!-- /may-expand -->
 
   </section>
 
@@ -1130,6 +1161,67 @@ const FEATURES = {
         <p>Intelligent control, visibility, and customization — all in one place. The future of AI-powered support is not just automation. It's governance.</p>
       </div>
     `
+  },
+
+  'bring-someone-in': {
+    num: '01',
+    prev: null,
+    next: null,
+    month: 'june',
+    monthLabel: 'June 2026',
+    badge: 'Released',
+    title: 'Collaborate Instantly with Bring Someone In (@Mention)',
+    sub: 'The Bring Someone In (<strong>@Mention</strong>) feature enables LiveAgents to instantly involve the right teammate in an ongoing customer conversation without transferring ownership of the chat.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-message-2-share"></i> Why this feature matters</div>
+        <p class="fdv-p">Customer queries often require expertise from different teams. Earlier, LiveAgents depended on external tools such as Teams, WhatsApp, or email to seek help, which delayed responses and fragmented collaboration. With @Mention, collaboration now happens directly inside the same workspace and conversation context.</p>
+        ${shot('Images/Colloborate-instantly - june/Image (2).png','Bring Someone In (@Mention) within an active customer conversation')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('Instantly Bring Another LiveAgent In','Mention any LiveAgent directly in an active customer conversation using @Mention.')}
+          ${bl('Provide Context with the Mention','Include why assistance is required so the mentioned LiveAgent can prepare before responding.')}
+          ${bl('Dedicated Mentions Inbox','All incoming mentions are consolidated in one Mentions module for quick attention management.')}
+          ${bl('Full Conversation Visibility','Mentioned LiveAgents can review the complete conversation history before joining.')}
+          ${bl('Direct Navigation to Mention Point','View Conversation opens the exact message where the mention happened for immediate context.')}
+          ${bl('No Ownership Transfer Required','Subject matter experts can assist while the original LiveAgent continues to own the conversation.')}
+          ${bl('Cross-Team Collaboration','Sales, Support, Technical, Billing, and Operations teams can collaborate in one place.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-bell-ringing"></i> Mentions flow in action</div>
+        <div class="shot-grid">
+          ${shotRaw('Images/Colloborate-instantly - june/Image (3).png','Mention is created with customer message context')}
+          ${shotRaw('Images/Colloborate-instantly - june/Image (4).png','Mentioned LiveAgent receives instant notification')}
+        </div>
+        <div class="shot-grid">
+          ${shotRaw('Images/Colloborate-instantly - june/Image (5).png','Mentions inbox consolidates requests requiring attention')}
+          ${shotRaw('Images/Colloborate-instantly - june/Image (6).png','LiveAgent navigates directly to the exact mentioned message')}
+        </div>
+        ${shot('Images/Colloborate-instantly - june/Image (7).png','Collaborative resolution continues with full conversation context')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-bolt"></i>','Accelerate Resolution','Bring the right expert instantly to reduce response time for complex customer queries.')}
+          ${vc('<i class="ti ti-users-group"></i>','Stronger Teamwork','LiveAgents collaborate directly in-platform without switching communication tools.')}
+          ${vc('<i class="ti ti-mood-smile"></i>','Better Customer Experience','Customers do not need to repeat issues when additional LiveAgents join the conversation.')}
+          ${vc('<i class="ti ti-target"></i>','Higher First Contact Resolution','Teams can resolve more queries during the first interaction by involving experts immediately.')}
+          ${vc('<i class="ti ti-history"></i>','Context Continuity','Every participant sees the full conversation history for consistent and informed responses.')}
+          ${vc('<i class="ti ti-briefcase"></i>','Operational Efficiency','Reduce escalations and transfers while the primary LiveAgent retains ownership.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>Centralized collaboration, faster outcomes.</h3>
+        <p>@Mention keeps internal teamwork, customer context, and resolution flow in one platform with a complete collaboration trail.</p>
+      </div>
+    `
   }
 
 };
@@ -1172,19 +1264,26 @@ function showView(id) {
 }
 
 let mayOpen = false;
+let juneOpen = false;
 
-function showHub(keepMay) {
+function showHub(keepMonth) {
   showView('view-hub');
   setBC([]);
-  const ex = document.getElementById('may-expand');
-  const mc = document.getElementById('mc-may');
-  if (keepMay) {
-    if (!ex.classList.contains('open')) {
-      ex.classList.add('open');
-      mc.classList.add('open');
-      mayOpen = true;
+
+  const sections = {
+    may: { ex: document.getElementById('may-expand'), mc: document.getElementById('mc-may') },
+    june: { ex: document.getElementById('june-expand'), mc: document.getElementById('mc-june') }
+  };
+
+  if (keepMonth && sections[keepMonth]) {
+    const current = sections[keepMonth];
+    if (!current.ex.classList.contains('open')) {
+      current.ex.classList.add('open');
+      current.mc.classList.add('open');
+      if (keepMonth === 'may') mayOpen = true;
+      if (keepMonth === 'june') juneOpen = true;
     }
-    setTimeout(() => ex.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
+    setTimeout(() => current.ex.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
   } else {
     // keep current expand state; nav logo doesn't change it
   }
@@ -1204,6 +1303,13 @@ function showHub(keepMay) {
 function toggleMay() {
   const ex = document.getElementById('may-expand');
   const mc = document.getElementById('mc-may');
+  const juneEx = document.getElementById('june-expand');
+  const juneMc = document.getElementById('mc-june');
+  if (juneOpen) {
+    juneOpen = false;
+    juneEx.classList.remove('open');
+    juneMc.classList.remove('open');
+  }
   mayOpen = !mayOpen;
   ex.classList.toggle('open', mayOpen);
   mc.classList.toggle('open', mayOpen);
@@ -1211,6 +1317,26 @@ function toggleMay() {
     setTimeout(() => {
       ex.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       scaleWaPoster();
+    }, 60);
+  }
+}
+
+function toggleJune() {
+  const ex = document.getElementById('june-expand');
+  const mc = document.getElementById('mc-june');
+  const mayEx = document.getElementById('may-expand');
+  const mayMc = document.getElementById('mc-may');
+  if (mayOpen) {
+    mayOpen = false;
+    mayEx.classList.remove('open');
+    mayMc.classList.remove('open');
+  }
+  juneOpen = !juneOpen;
+  ex.classList.toggle('open', juneOpen);
+  mc.classList.toggle('open', juneOpen);
+  if (juneOpen) {
+    setTimeout(() => {
+      ex.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 60);
   }
 }
@@ -1236,9 +1362,12 @@ function showFeature(id) {
   const prev = f.prev ? `<button class="fdv-nav-btn" onclick="showFeature('${f.prev}')"><i class="ti ti-arrow-left"></i> Prev</button>` : '';
   const next = f.next ? `<button class="fdv-nav-btn" onclick="showFeature('${f.next}')">Next <i class="ti ti-arrow-right"></i></button>` : '';
 
+  const month = f.month || 'may';
+  const monthLabel = f.monthLabel || 'May 2026';
+
   document.getElementById('fdv-body').innerHTML = `
     <div class="fdv-toprow">
-      <button class="back-btn" onclick="showHub(true)"><i class="ti ti-arrow-left"></i> May 2026</button>
+      <button class="back-btn" onclick="showHub('${month}')"><i class="ti ti-arrow-left"></i> ${monthLabel}</button>
       <div class="fdv-nav-btns">${prev}${next}</div>
     </div>
     <div class="fdv-hero">
@@ -1251,7 +1380,7 @@ function showFeature(id) {
 
   showView('view-feature');
   setBC([
-    { label: 'May 2026', action: "showHub(true)" },
+    { label: monthLabel, action: `showHub('${month}')` },
     { label: f.title }
   ]);
 }

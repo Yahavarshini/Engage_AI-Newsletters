@@ -9,6 +9,7 @@ Monthly product newsletters hosted via GitHub Pages.
 | Month | Newsletter | Feature Pages |
 |-------|-----------|---------------|
 | [May 2026](https://yahavarshini.github.io/newsletters/2026-05/) | [View](https://yahavarshini.github.io/newsletters/2026-05/) | [WhatsApp Calling](https://yahavarshini.github.io/newsletters/2026-05/whatsapp-calling.html) |
+| [June 2026](https://yahavarshini.github.io/newsletters/) | [View](https://yahavarshini.github.io/newsletters/) | Bring Someone In (@Mention) |
 
 ---
 
