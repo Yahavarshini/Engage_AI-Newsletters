@@ -194,13 +194,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hub-sub { font-size: 15px; color: var(--muted); line-height: 1.72; max-width: 480px; margin: 0 auto; }
 .months-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 14px;
   max-width: 680px;
   margin: 0 auto;
 }
-@media (max-width: 640px) { .months-row { grid-template-columns: 1fr; } }
+.month-block { display: flex; flex-direction: column; gap: 10px; }
 
 .mc {
   border-radius: 14px;
@@ -670,18 +670,19 @@ footer a:hover { color: var(--text); }
 
     <div class="months-row">
 
-      <!-- May 2026 — LIVE -->
-      <div class="mc live" id="mc-may" onclick="toggleMay()">
-        <div class="mc-m">May</div>
-        <div class="mc-y">2026</div>
-        <div class="mc-badge"><span class="live-dot"></span>&nbsp;Live</div>
-        <div class="mc-desc">4 features shipped</div>
-        <i class="ti ti-chevron-right mc-chevron"></i>
-      </div>
+      <div class="month-block">
+        <!-- May 2026 — LIVE -->
+        <div class="mc live" id="mc-may" onclick="toggleMay()">
+          <div class="mc-m">May</div>
+          <div class="mc-y">2026</div>
+          <div class="mc-badge"><span class="live-dot"></span>&nbsp;Live</div>
+          <div class="mc-desc">5 features shipped</div>
+          <i class="ti ti-chevron-right mc-chevron"></i>
+        </div>
 
-      <!-- ── MAY 2026 INLINE EXPAND ── -->
-      <div class="may-expand" id="may-expand">
-        <div class="may-expand-inner">
+        <!-- ── MAY 2026 INLINE EXPAND ── -->
+        <div class="may-expand" id="may-expand">
+          <div class="may-expand-inner">
 
           <!-- Header -->
           <div class="expand-header">
@@ -689,7 +690,7 @@ footer a:hover { color: var(--text); }
               <div class="expand-kicker">May 2026 · Release Digest</div>
               <div class="expand-sub">What shipped this month</div>
             </div>
-            <div class="expand-count">4 features shipped</div>
+            <div class="expand-count">5 features shipped</div>
           </div>
 
           <!-- Feature list — horizontal rows -->
@@ -752,28 +753,30 @@ footer a:hover { color: var(--text); }
             </div>
 
           </div><!-- /feature-list -->
-        </div><!-- /may-expand-inner -->
-      </div><!-- /may-expand -->
-
-      <!-- June 2026 — LIVE -->
-      <div class="mc live" id="mc-june" onclick="toggleJune()">
-        <div class="mc-m">Jun</div>
-        <div class="mc-y">2026</div>
-        <div class="mc-badge"><span class="live-dot"></span>&nbsp;Live</div>
-        <div class="mc-desc">1 feature shipped</div>
-        <i class="ti ti-chevron-right mc-chevron"></i>
+          </div><!-- /may-expand-inner -->
+        </div><!-- /may-expand -->
       </div>
 
-      <!-- ── JUNE 2026 INLINE EXPAND ── -->
-      <div class="may-expand" id="june-expand">
-        <div class="may-expand-inner">
+      <div class="month-block">
+        <!-- June 2026 — LIVE -->
+        <div class="mc live" id="mc-june" onclick="toggleJune()">
+          <div class="mc-m">Jun</div>
+          <div class="mc-y">2026</div>
+          <div class="mc-badge"><span class="live-dot"></span>&nbsp;Live</div>
+          <div class="mc-desc">6 features shipped</div>
+          <i class="ti ti-chevron-right mc-chevron"></i>
+        </div>
+
+        <!-- ── JUNE 2026 INLINE EXPAND ── -->
+        <div class="may-expand" id="june-expand">
+          <div class="may-expand-inner">
 
           <div class="expand-header">
             <div>
               <div class="expand-kicker">June 2026 · Release Digest</div>
               <div class="expand-sub">What shipped this month</div>
             </div>
-            <div class="expand-count">1 feature shipped</div>
+            <div class="expand-count">6 features shipped</div>
           </div>
 
           <div class="feature-list">
@@ -790,16 +793,89 @@ footer a:hover { color: var(--text); }
               </div>
               <button class="fl-explore" onclick="showFeature('bring-someone-in')">Explore <i class="ti ti-arrow-right"></i></button>
             </div>
-          </div>
-        </div>
-      </div><!-- /june-expand -->
 
-      <!-- July 2026 — SOON -->
-      <div class="mc soon">
-        <div class="mc-m">Jul</div>
-        <div class="mc-y">2026</div>
-        <div class="mc-badge">Coming Soon</div>
-        <div class="mc-desc">Stay tuned</div>
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-brain"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">inFlow Memory</div>
+                <div class="fl-desc">Give your AI the power to remember every customer across conversations and use that memory to deliver faster, smarter, and more personalized experiences.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Customer Memory</span>
+                  <span class="fl-tag">Personalization</span>
+                  <span class="fl-tag">AI Governance</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('inflow-memory')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-message-plus"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Proactive Customer Conversation Initiation</div>
+                <div class="fl-desc">Start conversations with new contacts directly from the Live Agent Portal using approved Meta templates without switching to the Broadcast Module.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">New Contact</span>
+                  <span class="fl-tag">Meta Templates</span>
+                  <span class="fl-tag">Live Agent Portal</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('proactive-conversation-initiation')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-brand-whatsapp"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Flexible WhatsApp Template Messaging</div>
+                <div class="fl-desc">Initiate customer conversations with any eligible approved WhatsApp template based on the Customer Service Window and messaging rules.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Marketing Templates</span>
+                  <span class="fl-tag">Utility Templates</span>
+                  <span class="fl-tag">Meta Compliance</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('flexible-whatsapp-template-messaging')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-user-check"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Last Live Agent Visibility</div>
+                <div class="fl-desc">See the most recent live agent who handled each conversation, helping teams preserve continuity and avoid duplicate effort.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Ownership Visibility</span>
+                  <span class="fl-tag">Team Collaboration</span>
+                  <span class="fl-tag">Conversation Continuity</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('last-live-agent-visibility')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-message-2-bolt"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Co-Existence</div>
+                <div class="fl-desc">Use your WhatsApp Business App alongside your AI bot on the same WhatsApp number, with seamless handover in both directions.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">AI + Human Handover</span>
+                  <span class="fl-tag">Same WhatsApp Number</span>
+                  <span class="fl-tag">Automation Continuity</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('co-existence')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+          </div>
+          </div>
+        </div><!-- /june-expand -->
+      </div>
+
+      <div class="month-block">
+        <!-- July 2026 — SOON -->
+        <div class="mc soon">
+          <div class="mc-m">Jul</div>
+          <div class="mc-y">2026</div>
+          <div class="mc-badge">Coming Soon</div>
+          <div class="mc-desc">Stay tuned</div>
+        </div>
       </div>
 
     </div><!-- /months-row -->
@@ -1105,7 +1181,7 @@ const FEATURES = {
           ${bl('Feature-by-Feature Scale','Adopt AI incrementally — on your timeline, at your pace')}
           ${bl('Enterprise Governance','Structured AI administration built for enterprise teams')}
         </div>
-        ${shot('Images/inflow-memory/image.png','AI Configuration Hub — all AI capabilities in one unified view')}
+        ${shot('Images/AI-config/image.png','AI Configuration Hub — all AI capabilities in one unified view')}
       </div>
 
       <div class="fdv-section">
@@ -1117,7 +1193,7 @@ const FEATURES = {
           ${bl('Region & Inference','Regional hosting and inference configuration visible')}
           ${bl('Output Preferences','Configure formatting and output behavior per feature')}
         </div>
-        ${shot('Images/inflow-memory/image (1).png','AI Model Transparency — provider, model, region and inference details')}
+        ${shot('Images/AI-config/image (1).png','AI Model Transparency — provider, model, region and inference details')}
       </div>
 
       <div class="fdv-section">
@@ -1131,7 +1207,7 @@ const FEATURES = {
           ${bl('Focus Areas','Define operational areas the AI should prioritize')}
           ${bl('Regional Hosting','Configure AI inference region for compliance')}
         </div>
-        ${shot('Images/inflow-memory/ASKAI_Configuration_Updated.png','Feature-Level Configuration — Ask AI and Conversation Summarization settings')}
+        ${shot('Images/AI-config/ASKAI_Configuration_Updated.png','Feature-Level Configuration — Ask AI and Conversation Summarization settings')}
       </div>
 
       <div class="fdv-section">
@@ -1166,17 +1242,17 @@ const FEATURES = {
   'bring-someone-in': {
     num: '01',
     prev: null,
-    next: null,
+    next: 'inflow-memory',
     month: 'june',
     monthLabel: 'June 2026',
     badge: 'Released',
     title: 'Collaborate Instantly with Bring Someone In (@Mention)',
-    sub: 'The Bring Someone In (<strong>@Mention</strong>) feature enables LiveAgents to instantly involve the right teammate in an ongoing customer conversation without transferring ownership of the chat.',
+    sub: '<strong>Collaborate Instantly with Bring Someone In (@Mention)</strong> enables LiveAgents to instantly involve the right teammate in an ongoing customer conversation without transferring ownership of the chat.',
     render: () => `
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-message-2-share"></i> Why this feature matters</div>
         <p class="fdv-p">Customer queries often require expertise from different teams. Earlier, LiveAgents depended on external tools such as Teams, WhatsApp, or email to seek help, which delayed responses and fragmented collaboration. With @Mention, collaboration now happens directly inside the same workspace and conversation context.</p>
-        ${shot('Images/Colloborate-instantly - june/Image (2).png','Bring Someone In (@Mention) within an active customer conversation')}
+        ${shot('Images/Colloborate-instantly - june/Image (2).png','Collaborate Instantly with Bring Someone In (@Mention) within an active customer conversation')}
       </div>
 
       <div class="fdv-section">
@@ -1198,11 +1274,6 @@ const FEATURES = {
           ${shotRaw('Images/Colloborate-instantly - june/Image (3).png','Mention is created with customer message context')}
           ${shotRaw('Images/Colloborate-instantly - june/Image (4).png','Mentioned LiveAgent receives instant notification')}
         </div>
-        <div class="shot-grid">
-          ${shotRaw('Images/Colloborate-instantly - june/Image (5).png','Mentions inbox consolidates requests requiring attention')}
-          ${shotRaw('Images/Colloborate-instantly - june/Image (6).png','LiveAgent navigates directly to the exact mentioned message')}
-        </div>
-        ${shot('Images/Colloborate-instantly - june/Image (7).png','Collaborative resolution continues with full conversation context')}
       </div>
 
       <div class="fdv-section">
@@ -1220,6 +1291,291 @@ const FEATURES = {
       <div class="impact">
         <h3>Centralized collaboration, faster outcomes.</h3>
         <p>@Mention keeps internal teamwork, customer context, and resolution flow in one platform with a complete collaboration trail.</p>
+      </div>
+    `
+  },
+
+  'inflow-memory': {
+    num: '02',
+    prev: 'bring-someone-in',
+    next: 'proactive-conversation-initiation',
+    month: 'june',
+    monthLabel: 'June 2026',
+    badge: 'Released',
+    title: 'inFlow Memory – Give Your AI the Power to Remember Every Customer',
+    sub: '<strong>inFlow Memory</strong> gives EngageAI the power to remember every customer across conversations so the AI can deliver faster, smarter, and more personalized experiences without making people repeat themselves.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-brain"></i> Overview</div>
+        <p class="fdv-p">Every great customer experience begins with one simple expectation: <strong>"I shouldn&apos;t have to repeat myself."</strong> Unfortunately, most chatbots forget everything the moment a conversation ends. inFlow Memory changes that by giving EngageAI an intelligent memory engine that remembers meaningful customer information across conversations and uses it to continue the relationship, not restart it.</p>
+        ${shot('Images/Inflow-memory-june/Image-7.png','inFlow Memory in action — EngageAI recalls customer context and suggests the next best appointment flow')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-message-chatbot"></i> Memory-powered customer journey</div>
+        <p class="fdv-p">inFlow Memory turns repeated conversations into a connected journey. The AI captures long-term signals from booking conversations, remembers them, and uses them when the customer returns.</p>
+        <div class="shot-grid">
+          ${shotRaw('Images/Inflow-memory-june/Image-1.png','Step 1 and Step 2 — customer shares department and preferred appointment day')}
+          ${shotRaw('Images/Inflow-memory-june/Image-2.png','Step 3 and Step 4 — customer confirms preferred time and completes the booking flow')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('Build Long-Term Customer Memory Automatically','inFlow Memory learns valuable information such as appointment preferences, doctors, language, active bookings, and business-specific context without manual tagging.')}
+          ${bl('Recognize Returning Customers Instantly','When a customer returns, EngageAI recalls previously stored information and continues with full context instead of starting from zero.')}
+          ${bl('Personalize Every Conversation','The AI proactively uses memory to guide the conversation and recommend relevant next steps based on what it already knows.')}
+          ${bl('Keep Memory Accurate Over Time','Appointments, preferences, and other important facts are refreshed automatically whenever they change.')}
+          ${bl('Control What AI Remembers','Admins can configure provider, model, region, retention, retrieved memories, and custom extraction rules to match business policy.')}
+          ${bl('Transparent Memory Management','Every generated memory is visible and manageable in the EngageAI platform for validation and governance.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-settings"></i> Admin Configuration</div>
+        <p class="fdv-p">Administrators get enterprise-grade control over how memory is created, retained, and retrieved. Configure the AI provider, model, regional hosting, memory age, retrieval depth, and extraction behavior from one dedicated control surface.</p>
+        ${shot('Images/Inflow-memory-june/Image-3.png','Admin Configuration — control AI provider, model, retention, and retrieved memories for inFlow Memory')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-file-text"></i> Sample Prompt</div>
+        <p class="fdv-p">Memory extraction is governed by prompt instructions that define what should be remembered, what should never be stored, and how changing facts must be updated over time. This keeps memory useful, accurate, and policy-aligned.</p>
+        ${shot('Images/Inflow-memory-june/Image-4.png','Sample Prompt — configurable memory extraction and retention rules for inFlow Memory')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-layout-sidebar-right"></i> Memory surfaced in the agent workspace</div>
+        <p class="fdv-p">As soon as a known customer returns, inFlow Memory becomes visible inside the agent workspace so teams can immediately understand the customer context and the AI&apos;s personalization signals.</p>
+        ${shot('Images/Inflow-memory-june/Image-5.png','Agent workspace — inFlow Memory surfaced directly in the conversation sidebar')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-user-star"></i> User&apos;s Memory</div>
+        <p class="fdv-p">Every stored memory is visible through the platform so teams can review the latest known truth about a customer — from active appointments to preferred times, departments, and other personalization signals.</p>
+        ${shot('Images/Inflow-memory-june/Image-6.png','User&apos;s Memory — transparent view of stored customer preferences and active appointment context')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-heart-handshake"></i>','Personalized Experiences','Every returning customer feels recognized instead of being forced to repeat preferences and history.')}
+          ${vc('<i class="ti ti-bolt"></i>','Less Customer Effort','EngageAI removes repetitive questions and helps customers get to outcomes faster.')}
+          ${vc('<i class="ti ti-route"></i>','Faster Journeys','Conversations begin with meaningful context, reducing friction and accelerating the path to resolution or conversion.')}
+          ${vc('<i class="ti ti-trending-up"></i>','Higher Conversion','Remembered behaviors help the AI recommend relevant products, slots, and services at the right moment.')}
+          ${vc('<i class="ti ti-headset-off"></i>','Reduced Agent Dependency','With richer historical context, the AI can independently resolve a larger share of customer requests.')}
+          ${vc('<i class="ti ti-shield-check"></i>','Enterprise Governance','Organizations maintain control over memory creation, retention, and usage through configurable policies and AI settings.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>Give your AI the power to remember every customer.</h3>
+        <p>inFlow Memory helps EngageAI remember people, not just messages—so every future conversation becomes smarter than the last.</p>
+      </div>
+    `
+  },
+
+  'proactive-conversation-initiation': {
+    num: '03',
+    prev: 'inflow-memory',
+    next: 'flexible-whatsapp-template-messaging',
+    month: 'june',
+    monthLabel: 'June 2026',
+    badge: 'Released',
+    title: 'Proactive Customer Conversation Initiation',
+    sub: '<strong>Proactive Customer Conversation Initiation</strong> allows teams to start conversations with brand-new contacts directly from the Live Agent Portal using approved Meta templates—without leaving the agent workspace.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-message-plus"></i> Overview</div>
+        <p class="fdv-p">Reaching out to a new customer should be simple, fast, and available wherever your teams work. Previously, businesses could only initiate conversations with new contacts through the Broadcast Module using approved WhatsApp templates. With this enhancement, EngageAI now enables users to initiate conversations with new contacts directly from the Live Agent Portal by entering the customer&apos;s details, selecting an approved Meta template, and starting the conversation in one streamlined flow.</p>
+        ${shot('Images/Initiate-convo-june/Image (2).png','Live Agent Portal — start a new proactive customer conversation directly from the workspace')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key controls</div>
+        <div class="bullets">
+          ${bl('Start Conversations with New Contacts','Initiate conversations with customers who have never interacted with your business before directly from the Live Agent Portal.')}
+          ${bl('Send Approved Meta Templates','Select from approved WhatsApp message templates while staying fully compliant with Meta messaging guidelines.')}
+          ${bl('No Need to Switch Modules','Sales and support teams can start proactive conversations without moving to the Broadcast Module.')}
+          ${bl('Quick Contact Creation','Enter customer name, WhatsApp number, and approved Meta template to create and open the conversation instantly.')}
+          ${bl('Continue the Conversation Seamlessly','Once the customer responds, agents continue in the same chat with complete interaction history and context.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-user-plus"></i> Create a new contact</div>
+        <p class="fdv-p">Agents can create a brand-new conversation directly from the portal by choosing a WhatsApp-enabled bot and entering the customer&apos;s contact information without leaving the current workspace.</p>
+        ${shot('Images/Initiate-convo-june/Image (3).png','Create New Conversation — enter bot selection and new customer contact details')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-layout-template"></i> Select an approved template</div>
+        <p class="fdv-p">The conversation begins with a pre-approved Meta template, ensuring every outbound initiation remains compliant while still allowing teams to move fast.</p>
+        ${shot('Images/Initiate-convo-june/Image (4).png','Template selection — choose an approved Meta template before sending')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-send"></i> Launch and continue the conversation</div>
+        <p class="fdv-p">Once the new conversation is created successfully, the template message appears directly in the chat and the team can continue the interaction inside the same conversation thread.</p>
+        ${shot('Images/Initiate-convo-june/Image (5).png','Conversation created successfully — proactive message appears directly in the Live Agent Portal')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-bolt"></i>','Reach Customers Faster','Initiate outbound conversations instantly without relying on separate campaign workflows.')}
+          ${vc('<i class="ti ti-layout-grid"></i>','Higher Productivity','Remove unnecessary module switching for sales and support teams.')}
+          ${vc('<i class="ti ti-click"></i>','Simplified Outreach','Start new conversations in just a few clicks with contact details and an approved template.')}
+          ${vc('<i class="ti ti-shield-check"></i>','WhatsApp Compliance','Ensure every outbound conversation starts with a Meta-approved template.')}
+          ${vc('<i class="ti ti-app-window"></i>','Unified Agent Experience','Manage proactive outreach and ongoing conversations from a single workspace.')}
+          ${vc('<i class="ti ti-rocket"></i>','Faster Engagement','Follow up with leads, appointments, service requests, and customer inquiries without operational delays.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>Start new customer conversations without leaving the workspace.</h3>
+        <p>EngageAI brings proactive outreach into the Live Agent Portal so teams can move faster while staying compliant and context-aware.</p>
+      </div>
+    `
+  },
+
+  'flexible-whatsapp-template-messaging': {
+    num: '04',
+    prev: 'proactive-conversation-initiation',
+    next: 'last-live-agent-visibility',
+    month: 'june',
+    monthLabel: 'June 2026',
+    badge: 'Released',
+    title: 'Initiate Customer Conversations with Any Eligible WhatsApp Template',
+    sub: '<strong>Flexible WhatsApp Template Messaging</strong> gives businesses the freedom to use the right approved WhatsApp template for each scenario—whether the conversation is inside or outside the Customer Service Window.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-brand-whatsapp"></i> Overview</div>
+        <p class="fdv-p">Businesses often need the flexibility to send different types of WhatsApp templates depending on the customer journey—promotional offers, appointment reminders, order updates, or payment notifications. Previously, EngageAI only allowed users to initiate conversations outside the Customer Service Window using a dedicated conversation initiation template. With this enhancement, businesses can now use any Meta-approved <strong>Marketing template</strong> outside the Customer Service Window, and any approved <strong>Marketing or Utility template</strong> when the conversation is already within it.</p>
+        ${shot('Images/whatsapp-template-june/Image (2).png','Flexible WhatsApp Template Messaging — use eligible approved templates directly in the conversation workflow')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key controls</div>
+        <div class="bullets">
+          ${bl('Initiate with Any Marketing Template','When the customer is outside the Customer Service Window, users can initiate conversations with any Meta-approved Marketing template.')}
+          ${bl('Send Marketing Templates Within CSW','Marketing templates can also be sent during an active Customer Service Window whenever proactive engagement is needed.')}
+          ${bl('Send Utility Templates Within CSW','Approved Utility templates remain available during the Customer Service Window for transactional and service-related communication.')}
+          ${bl('Automatic Compliance','The platform automatically applies the correct template options based on the conversation state to help maintain Meta compliance.')}
+          ${bl('Greater Flexibility','Teams can choose the most relevant approved template for each customer interaction instead of relying on a single initiation template.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-layout-template"></i> Template selection experience</div>
+        <p class="fdv-p">Agents can choose an approved template, map placeholders, preview the final message, and initiate the conversation directly from the Live Agent Portal—keeping outreach simple and consistent.</p>
+        ${shot('Images/whatsapp-template-june/Image (3).png','Template selection and mapping — choose any eligible approved WhatsApp template')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-arrows-shuffle"></i>','Greater Flexibility','Use the template that best fits the business scenario instead of relying on one initiation template.')}
+          ${vc('<i class="ti ti-message-circle"></i>','Better Engagement','Deliver more relevant and personalized messages throughout the customer journey.')}
+          ${vc('<i class="ti ti-settings-2"></i>','Simpler Workflows','Remove restrictions and let agents use existing approved templates directly from the portal.')}
+          ${vc('<i class="ti ti-briefcase"></i>','More Scenarios Supported','Send reminders, promotions, payment notifications, order updates, and service messages from one interface.')}
+          ${vc('<i class="ti ti-shield-check"></i>','Meta Compliance','Continue using approved templates while automatically respecting WhatsApp messaging rules.')}
+          ${vc('<i class="ti ti-template"></i>','Lower Template Overhead','Avoid creating and maintaining separate initiation templates when suitable marketing templates already exist.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>Use the right approved template at the right time.</h3>
+        <p>EngageAI now makes customer communication more flexible, more relevant, and more effective while staying fully aligned with Meta&apos;s messaging policies.</p>
+      </div>
+    `
+  },
+
+  'last-live-agent-visibility': {
+    num: '05',
+    prev: 'flexible-whatsapp-template-messaging',
+    next: 'co-existence',
+    month: 'june',
+    monthLabel: 'June 2026',
+    badge: 'Released',
+    title: 'Never Lose Conversation Ownership with Last Live Agent Visibility',
+    sub: '<strong>Last Live Agent Visibility</strong> makes the most recent conversation owner instantly visible so teams can collaborate faster, maintain continuity, and avoid duplicated work.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-user-check"></i> Overview</div>
+        <p class="fdv-p">In busy support environments, customer conversations often move across agents and time. Without knowing who last assisted the customer, teams lose time asking around, opening history, or repeating work. With this enhancement, EngageAI now displays the most recent live agent who interacted with each customer directly in the conversation list, giving instant ownership visibility before an agent even opens the chat.</p>
+        ${shot('Images/last-agent-june/Image (2).png','Last Live Agent Visibility — instantly identify the most recent live agent for each conversation')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('Instantly See Who Last Assisted the Customer','Each conversation shows the avatar of the most recent live agent, so teams get immediate context without opening the conversation.')}
+          ${bl('View Agent Details on Hover','Hover on the live agent avatar to view the agent name and identify the previous conversation owner quickly.')}
+          ${bl('Improve Team Collaboration','Support teams can coordinate faster by immediately knowing who has the latest customer context.')}
+          ${bl('Better Conversation Continuity','When customers return after hours or days, agents can continue smoothly with clear ownership awareness.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-user-circle"></i>','Improve Ownership','Instantly identify who last worked with a customer conversation.')}
+          ${vc('<i class="ti ti-users"></i>','Reduce Coordination','Eliminate back-and-forth internal queries about who handled the conversation previously.')}
+          ${vc('<i class="ti ti-copy-x"></i>','Prevent Duplicate Effort','Avoid multiple agents repeating the same investigation or outreach unknowingly.')}
+          ${vc('<i class="ti ti-bolt"></i>','Faster Resolution','Agents begin with clearer context, reducing delays and improving response times.')}
+          ${vc('<i class="ti ti-message-heart"></i>','Seamless Support Experience','Deliver more consistent customer assistance even when interactions move across agents.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>Continuity starts with visibility.</h3>
+        <p>By showing the last attending live agent directly in the conversation list, EngageAI helps teams stay aligned and deliver smoother customer support every time.</p>
+      </div>
+    `
+  },
+
+  'co-existence': {
+    num: '06',
+    prev: 'last-live-agent-visibility',
+    next: null,
+    month: 'june',
+    monthLabel: 'June 2026',
+    badge: 'Released',
+    title: 'Co-Existence – Use Your WhatsApp Business App Alongside Your AI Bot on the Same WhatsApp Number',
+    sub: '<strong>Co-Existence</strong> allows AI agents and WhatsApp Business users to collaborate on the same WhatsApp number and in the same customer conversation—without breaking customer continuity.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-message-2-bolt"></i> Overview</div>
+        <p class="fdv-p">Many businesses already rely on the WhatsApp Business App while also wanting AI automation for routine customer conversations. Previously, businesses had to choose one mode or the other. With Co-Existence, EngageAI enables AI and human users to work together on the same WhatsApp number, allowing seamless takeover by a business user when needed and handback to AI when complete—all within one continuous customer conversation.</p>
+        ${shot('Images/Co-existence-june/Image (3).png','Co-Existence — AI and WhatsApp Business users collaborating on the same customer conversation')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('AI and Human Conversations on the Same Number','Businesses can support both automated and manual interactions on one WhatsApp number without splitting channels.')}
+          ${bl('Seamlessly Take Over AI Conversations','Authorized WhatsApp Business users can step into ongoing AI conversations whenever personal assistance is needed.')}
+          ${bl('Hand Back to AI with One Command','After human support is complete, sending <strong>@AI-AGENT</strong> immediately returns control to the AI agent.')}
+          ${bl('Automatic Return to AI After Inactivity','If the human user becomes inactive, EngageAI auto-detects timeout, re-engages AI, and keeps the conversation attended.')}
+          ${bl('Transparent Customer Notifications','Customers are informed whenever control shifts between human and AI for a smooth and clear experience.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-sparkles"></i>','Best of AI + Human Expertise','Let AI handle routine requests while enabling humans to take over sensitive or complex cases when needed.')}
+          ${vc('<i class="ti ti-repeat"></i>','No Channel Switching','Customers stay in one uninterrupted WhatsApp conversation from start to finish.')}
+          ${vc('<i class="ti ti-robot"></i>','Higher AI Utilization','Business users intervene only when necessary, so AI continues handling routine interactions efficiently.')}
+          ${vc('<i class="ti ti-building-factory-2"></i>','Operational Efficiency','Teams focus human effort on high-value conversations while AI scales repetitive support.')}
+          ${vc('<i class="ti ti-alarm-check"></i>','No Unattended Conversations','Automatic timeout and re-engagement ensure conversations return to AI if human users go inactive.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>Automation and human support, together in one journey.</h3>
+        <p>Co-Existence lets AI and people collaborate where each adds the most value—driving faster resolutions and smoother customer experiences.</p>
       </div>
     `
   }
