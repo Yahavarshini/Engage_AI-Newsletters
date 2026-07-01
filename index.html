@@ -50,6 +50,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 70px;
   display: flex; align-items: center; justify-content: space-between;
+  gap: 20px;
   padding: 0 28px;
   background: rgba(7,7,11,0.92);
   backdrop-filter: saturate(180%) blur(18px);
@@ -57,6 +58,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .nav-brand {
   display: flex; align-items: center; gap: 20px;
+  flex-shrink: 0;
   cursor: pointer; user-select: none;
 }
 .nav-logo-img {
@@ -72,10 +74,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* EngageAI – landscape, content fills ~80% of width */
 .nav-brand img:last-of-type  { width: 130px; }
 .nav-divider {
-  width: 1px; height: 40px; background: var(--border); flex-shrink: 0;
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  flex-shrink: 0;
 }
 .nav-right {
   display: flex; align-items: center; justify-content: flex-end; gap: 12px;
+  flex: 1 1 auto; min-width: 0;
 }
 .nav-release {
   display: inline-flex; align-items: center; gap: 7px;
@@ -91,15 +98,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .nav-bc {
   display: flex; align-items: center; gap: 6px;
+  width: 100%; min-width: 0;
   font-size: 13px; color: var(--muted);
+  overflow: hidden;
 }
 .nav-bc .bc-btn {
+  flex: none;
   font-size: 13px; color: var(--muted); padding: 0;
+  white-space: nowrap;
   transition: color 0.15s;
 }
 .nav-bc .bc-btn:hover { color: var(--text); }
-.nav-bc .bc-sep { font-size: 11px; opacity: 0.4; }
-.nav-bc .bc-current { color: var(--text); font-weight: 600; }
+.nav-bc .bc-sep { flex: none; font-size: 11px; opacity: 0.4; }
+.nav-bc .bc-current {
+  flex: 1 1 auto; min-width: 0;
+  color: var(--text); font-weight: 600;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 
 /* ── VIEWS ── */
 .view { display: none; min-height: calc(100vh - 70px); padding-top: 70px; }
@@ -340,11 +355,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ══════════════════════════════════
    FEATURE DETAIL VIEW
 ══════════════════════════════════ */
-.fdv { max-width: 780px; margin: 0 auto; padding: 28px 24px 100px; }
+.fdv { max-width: 780px; margin: 0 auto; padding: 14px 24px 100px; }
 
 .fdv-toprow {
   display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px; margin-bottom: 28px;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 18px;
 }
 .fdv-nav-btns { display: flex; gap: 8px; }
 .fdv-nav-btn {
@@ -432,6 +447,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .shot:hover { transform: scale(1.014); box-shadow: 0 28px 80px rgba(0,0,0,0.65); }
 .shot img { width: 100%; display: block; flex: 1; object-fit: cover; }
+.shot-raw { align-self: start; }
+.shot-raw img { flex: 0 0 auto; height: auto; object-fit: contain; }
 .shot-cap {
   padding: 9px 16px 13px; font-size: 12px; color: #9090a8; font-style: italic; text-align: center;
   border-top: 1px solid var(--border-2); flex-shrink: 0;
@@ -439,6 +456,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; align-items: stretch; }
 @media (max-width: 560px) { .shot-grid { grid-template-columns: 1fr; } }
 .shot-grid .shot { margin: 0; }
+.memory-journey-grid { grid-template-columns: 1fr; align-items: start; }
+.memory-journey-shot-primary { justify-self: start; width: 100%; }
+.memory-journey-shot-secondary {
+  justify-self: start;
+  width: 100%;
+  margin-top: 14px !important;
+}
 
 /* Placeholder */
 .shot-ph {
@@ -787,8 +811,6 @@ footer a:hover { color: var(--text); }
                 <div class="fl-desc">LiveAgents can instantly mention another team member within an active customer conversation to collaborate without transferring chat ownership.</div>
                 <div class="fl-tags">
                   <span class="fl-tag">Mentions Inbox</span>
-                  <span class="fl-tag">Cross-Team Collaboration</span>
-                  <span class="fl-tag">No Ownership Transfer</span>
                 </div>
               </div>
               <button class="fl-explore" onclick="showFeature('bring-someone-in')">Explore <i class="ti ti-arrow-right"></i></button>
@@ -1263,8 +1285,6 @@ const FEATURES = {
           ${bl('Dedicated Mentions Inbox','All incoming mentions are consolidated in one Mentions module for quick attention management.')}
           ${bl('Full Conversation Visibility','Mentioned LiveAgents can review the complete conversation history before joining.')}
           ${bl('Direct Navigation to Mention Point','View Conversation opens the exact message where the mention happened for immediate context.')}
-          ${bl('No Ownership Transfer Required','Subject matter experts can assist while the original LiveAgent continues to own the conversation.')}
-          ${bl('Cross-Team Collaboration','Sales, Support, Technical, Billing, and Operations teams can collaborate in one place.')}
         </div>
       </div>
 
@@ -1314,9 +1334,9 @@ const FEATURES = {
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-message-chatbot"></i> Memory-powered customer journey</div>
         <p class="fdv-p">inFlow Memory turns repeated conversations into a connected journey. The AI captures long-term signals from booking conversations, remembers them, and uses them when the customer returns.</p>
-        <div class="shot-grid">
-          ${shotRaw('Images/Inflow-memory-june/Image-1.png','Step 1 and Step 2 — customer shares department and preferred appointment day')}
-          ${shotRaw('Images/Inflow-memory-june/Image-2.png','Step 3 and Step 4 — customer confirms preferred time and completes the booking flow')}
+        <div class="shot-grid memory-journey-grid">
+          ${shotRaw('Images/Inflow-memory-june/Image-1.png','Step 1 and Step 2 — customer shares department and preferred appointment day','memory-journey-shot-primary')}
+          ${shotRaw('Images/Inflow-memory-june/Image-2.png','Step 3 and Step 4 — customer confirms preferred time and completes the booking flow','memory-journey-shot-secondary')}
         </div>
       </div>
 
@@ -1461,7 +1481,6 @@ const FEATURES = {
           ${bl('Initiate with Any Marketing Template','When the customer is outside the Customer Service Window, users can initiate conversations with any Meta-approved Marketing template.')}
           ${bl('Send Marketing Templates Within CSW','Marketing templates can also be sent during an active Customer Service Window whenever proactive engagement is needed.')}
           ${bl('Send Utility Templates Within CSW','Approved Utility templates remain available during the Customer Service Window for transactional and service-related communication.')}
-          ${bl('Automatic Compliance','The platform automatically applies the correct template options based on the conversation state to help maintain Meta compliance.')}
           ${bl('Greater Flexibility','Teams can choose the most relevant approved template for each customer interaction instead of relying on a single initiation template.')}
         </div>
       </div>
@@ -1599,8 +1618,9 @@ function shot(src, cap) {
     <div class="shot-cap">${cap}</div>
   </div>`;
 }
-function shotRaw(src, cap) {
-  return `<div class="shot" onclick="openLb('${src}','${cap.replace(/'/g,"&#39;")}')">
+function shotRaw(src, cap, extraClass = '') {
+  const cls = extraClass ? ` ${extraClass}` : '';
+  return `<div class="shot shot-raw${cls}" onclick="openLb('${src}','${cap.replace(/'/g,"&#39;")}')">
     <img src="${src}" alt="${cap}" loading="lazy" />
     <div class="shot-cap">${cap}</div>
   </div>`;
