@@ -474,6 +474,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .shot img { width: 100%; display: block; flex: 1; object-fit: cover; }
 .shot-raw { align-self: start; }
 .shot-raw img { flex: 0 0 auto; height: auto; object-fit: contain; }
+.shot-narrow { max-width: 340px; margin-left: auto; margin-right: auto; align-self: center; }
+.shot-narrow img { flex: 0 0 auto; height: auto; object-fit: contain; }
 .shot-cap {
   padding: 9px 16px 13px; font-size: 12px; color: rgba(255,255,255,0.45); font-style: italic; text-align: center;
   border-top: 1px solid var(--border-2); flex-shrink: 0;
@@ -481,6 +483,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; align-items: stretch; }
 @media (max-width: 560px) { .shot-grid { grid-template-columns: 1fr; } }
 .shot-grid .shot { margin: 0; }
+.shot-grid-match .shot-raw { display: flex; flex-direction: column; }
+.shot-grid-match .shot-raw img { flex: 0 0 auto; width: 100%; height: 230px; object-fit: contain; }
+@media (max-width: 560px) { .shot-grid-match .shot-raw img { height: auto; } }
 .memory-journey-grid { grid-template-columns: 1fr; align-items: start; }
 .memory-journey-shot-primary { justify-self: start; width: 100%; }
 .memory-journey-shot-secondary {
@@ -921,7 +926,7 @@ footer a:hover { color: var(--text); }
           <div class="mc-m">Jul</div>
           <div class="mc-y">2026</div>
           <div class="mc-badge"><span class="live-dot"></span>&nbsp;Live</div>
-          <div class="mc-desc">2 features shipped</div>
+          <div class="mc-desc">3 features shipped</div>
           <i class="ti ti-chevron-right mc-chevron"></i>
         </div>
 
@@ -934,7 +939,7 @@ footer a:hover { color: var(--text); }
               <div class="expand-kicker">July 2026 · Release Digest</div>
               <div class="expand-sub">What shipped this month</div>
             </div>
-            <div class="expand-count">2 features shipped</div>
+            <div class="expand-count">3 features shipped</div>
           </div>
 
           <div class="feature-list">
@@ -964,6 +969,20 @@ footer a:hover { color: var(--text); }
                 </div>
               </div>
               <button class="fl-explore" onclick="showFeature('kb-from-unanswered-queries')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-device-mobile"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Access EngageAI Anywhere with Mobile Apps (Progressive Web App)</div>
+                <div class="fl-desc">Install the EngageAI PWA from the Google Play Store to access the Admin Portal and Agent Assist Portal from any Android device.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Progressive Web App</span>
+                  <span class="fl-tag">Android</span>
+                  <span class="fl-tag">Mobile Access</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('engageai-pwa')">Explore <i class="ti ti-arrow-right"></i></button>
             </div>
           </div>
           </div>
@@ -1691,7 +1710,6 @@ const FEATURES = {
           ${bl('End Active Live Agent Conversations','Allow Conversation Admins to terminate an ongoing Live Agent session without requiring action from the assigned Live Agent.')}
           ${bl('Reassign Conversations to Another Live Agent','Select and assign a new Live Agent to continue supporting the customer immediately after ending the current session.')}
           ${bl('Preserve Complete Conversation Context','The newly assigned Live Agent receives the entire conversation history, ensuring full visibility into previous interactions.')}
-          ${bl('Support Supervisor Intervention','Enable Conversation Admins to step in whenever operational or service-related intervention is required.')}
           ${bl('Handle Agent Unavailability','Quickly reassign customer conversations when a Live Agent becomes unavailable due to shift completion, connectivity issues, or unforeseen circumstances.')}
           ${bl('Enable Seamless Customer Continuity','Customers continue their conversation with a new Live Agent without restarting the interaction or repeating previously shared information.')}
           ${bl('Improve Operational Flexibility','Provide administrators with greater control over escalations and conversation management across support teams.')}
@@ -1701,7 +1719,7 @@ const FEATURES = {
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-arrows-exchange"></i> End & reassign flow in action</div>
         <p class="fdv-p">Conversation Admins end the current session and nominate a replacement Live Agent — with an optional comment for context — in a single step. The newly assigned agent receives the full handover, including the reason for reassignment.</p>
-        <div class="shot-grid">
+        <div class="shot-grid shot-grid-match">
           ${shotRaw('Images/End-Reasign-Convo- july/Image-2.png','End Conversation — select a Live Agent to transfer to and add an optional comment before ending the session')}
           ${shotRaw('Images/End-Reasign-Convo- july/Image-3.png','New Live Agent receives the full conversation context and reassignment reason instantly')}
         </div>
@@ -1727,7 +1745,7 @@ const FEATURES = {
   'kb-from-unanswered-queries': {
     num: '02',
     prev: 'end-reassign-conversation',
-    next: null,
+    next: 'engageai-pwa',
     month: 'july',
     monthLabel: 'July 2026',
     badge: 'Released',
@@ -1780,6 +1798,61 @@ const FEATURES = {
         <p>Create Knowledge Base Entries Directly from Unanswered Queries turns every gap in the AI Bot's knowledge into a one-toggle fix.</p>
       </div>
     `
+  },
+
+  'engageai-pwa': {
+    num: '03',
+    prev: 'kb-from-unanswered-queries',
+    next: null,
+    month: 'july',
+    monthLabel: 'July 2026',
+    badge: 'Released',
+    title: 'Access EngageAI Anywhere with Mobile Apps (Progressive Web App)',
+    sub: 'The <strong>EngageAI Progressive Web App (PWA)</strong> brings the Admin Portal and Agent Assist Portal to Android devices, letting administrators and Live Agents securely manage customer interactions anytime, anywhere from their smartphones.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-device-mobile"></i> Overview</div>
+        <p class="fdv-p">The EngageAI PWA brings the Admin Portal and Agent Assist Portal to Android devices, allowing users to install the application directly from the Google Play Store. Both portals have been optimized with a responsive mobile interface, enabling administrators and Live Agents to securely access and manage customer interactions anytime, anywhere from their smartphones.</p>
+        ${shot('Images/Pwd-july/Image-1.png','EngageAI Portal is now a PWA — available on the Google Play Store, with mobile-optimized Live Agent and Admin Portal screens','shot-narrow')}
+        <div style="text-align:center; margin-top:20px;">
+          <a class="btn-explore" href="https://play.google.com/store/apps/details?id=com.inextlabs.engageai_admin_portal" target="_blank" rel="noopener noreferrer">
+            <i class="ti ti-brand-google-play"></i> Get it on Google Play
+          </a>
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('Install from Google Play Store','Download and install the EngageAI mobile application directly from the Google Play Store.')}
+          ${bl('Access Both EngageAI Portals','Log in to either the Admin Portal or the Agent Assist Portal using the same mobile application.')}
+          ${bl('Mobile-Optimized User Experience','Enjoy a fully responsive interface designed for seamless navigation and usability on Android devices.')}
+          ${bl('Work from Anywhere','Manage conversations, monitor operations, and perform portal activities without requiring a desktop or laptop.')}
+          ${bl('Secure User Authentication','Sign in securely using existing EngageAI portal credentials for uninterrupted access.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-device-mobile"></i>','Enable Mobile Productivity','Empower administrators and Live Agents to stay connected and manage customer interactions while on the move.')}
+          ${vc('<i class="ti ti-arrows-shuffle"></i>','Increase Operational Flexibility','Support remote work, field operations, and after-hours monitoring through mobile access to EngageAI.')}
+          ${vc('<i class="ti ti-bolt"></i>','Improve Responsiveness','Allow teams to respond to customer conversations and operational needs faster, regardless of their location.')}
+          ${vc('<i class="ti ti-devices"></i>','Deliver a Consistent Experience','Provide a familiar and intuitive user experience across both desktop and mobile devices.')}
+          ${vc('<i class="ti ti-rocket"></i>','Simplify Deployment','Distribute the application through the Google Play Store, making installation, updates, and access simple for all users.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>EngageAI, now in your pocket.</h3>
+        <p>The Admin Portal and Agent Assist Portal are now just a tap away — install from the Play Store and stay connected from anywhere.</p>
+        <div style="margin-top:18px;">
+          <a class="btn-explore" href="https://play.google.com/store/apps/details?id=com.inextlabs.engageai_admin_portal" target="_blank" rel="noopener noreferrer">
+            <i class="ti ti-brand-google-play"></i> Download the App
+          </a>
+        </div>
+      </div>
+    `
   }
 
 };
@@ -1795,8 +1868,9 @@ function ar(t, d) {
 function vc(icon, t, d) {
   return `<div class="vc"><div class="vi">${icon}</div><h4>${t}</h4><p>${d}</p></div>`;
 }
-function shot(src, cap) {
-  return `<div class="shot" onclick="openLb('${src}','${cap.replace(/'/g,"&#39;")}')">
+function shot(src, cap, extraClass = '') {
+  const cls = extraClass ? ` ${extraClass}` : '';
+  return `<div class="shot${cls}" onclick="openLb('${src}','${cap.replace(/'/g,"&#39;")}')">
     <img src="${src}" alt="${cap}" loading="lazy" />
     <div class="shot-cap">${cap}</div>
   </div>`;
