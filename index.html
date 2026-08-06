@@ -483,9 +483,30 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; align-items: stretch; }
 @media (max-width: 560px) { .shot-grid { grid-template-columns: 1fr; } }
 .shot-grid .shot { margin: 0; }
-.shot-grid-match .shot-raw { display: flex; flex-direction: column; }
+.shot-grid-match .shot-raw { display: flex; flex-direction: column; align-self: stretch; }
 .shot-grid-match .shot-raw img { flex: 0 0 auto; width: 100%; height: 230px; object-fit: contain; }
+.shot-grid-match .shot-raw .shot-cap { margin-top: auto; }
 @media (max-width: 560px) { .shot-grid-match .shot-raw img { height: auto; } }
+
+/* Before/After tabbed switcher */
+.ba-widget { margin: 20px 0 8px; }
+.ba-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.ba-switch { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--s1); border: 1px solid var(--border); gap: 4px; }
+.ba-tab { padding: 7px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; color: var(--muted); transition: background 0.2s, color 0.2s; }
+.ba-tab.active { background: var(--brand); color: #fff; box-shadow: 0 3px 10px rgba(240,87,66,0.35); }
+.ba-metric { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.ba-metric i { color: var(--brand); font-size: 13px; }
+.ba-metric strong { color: var(--text); font-weight: 700; }
+.ba-metric strong.ba-metric-good { color: var(--brand); }
+.ba-stage {
+  max-width: 420px; margin: 0 auto; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border); background: var(--s1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55); cursor: zoom-in;
+}
+.ba-stage img { width: 100%; display: block; opacity: 1; transition: opacity 0.18s ease; }
+.ba-copy { text-align: center; max-width: 420px; margin: 16px auto 0; }
+.ba-copy-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.ba-copy-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 .memory-journey-grid { grid-template-columns: 1fr; align-items: start; }
 .memory-journey-shot-primary { justify-self: start; width: 100%; }
 .memory-journey-shot-secondary {
@@ -1755,7 +1776,6 @@ const FEATURES = {
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-message-question"></i> Overview</div>
         <p class="fdv-p">Previously, administrators had to manually create and upload separate Knowledge Base documents before the AI Bot could learn new information. With this enhancement, they can simply type the answer and, with a single toggle, publish it directly to the Knowledge Base. Once enabled, the AI Bot can automatically answer similar questions in future conversations — or the toggle can stay disabled to provide a one-time response without adding it to the Knowledge Base. This significantly simplifies knowledge management while giving organizations complete control over what the AI Bot learns.</p>
-        ${shot('Images/KB-UnQ-july/Image-1 (1).png','A customer question the AI Bot cannot yet answer is escalated as an unanswered query')}
       </div>
 
       <div class="fdv-section">
@@ -1777,9 +1797,9 @@ const FEATURES = {
       </div>
 
       <div class="fdv-section">
-        <div class="fdv-sh"><i class="ti ti-brain"></i> The AI Bot learns instantly</div>
+        <div class="fdv-sh"><i class="ti ti-brain"></i> Before &amp; after: the AI Bot learns instantly</div>
         <p class="fdv-p">The next time a customer asks a similar question, the AI Bot answers automatically using the newly published Knowledge Base entry — citing the source for full transparency.</p>
-        ${shot('Images/KB-UnQ-july/Image-1 (4).png','The AI Bot now answers the same question automatically, citing the newly created Knowledge Base source')}
+        ${beforeAfter('ba-kb')}
       </div>
 
       <div class="fdv-section">
@@ -1884,6 +1904,71 @@ function shotRaw(src, cap, extraClass = '') {
 }
 function ph(label) {
   return `<div class="shot-ph"><i class="ti ti-photo"></i><p>${label}</p></div>`;
+}
+
+/* ─── BEFORE / AFTER SWITCHER ──────────────────────────────────── */
+
+const BA_DATA = {
+  'ba-kb': {
+    metric: '<i class="ti ti-clock"></i> Response time: <strong>1 business day</strong> &rarr; <strong class="ba-metric-good">Instant</strong>',
+    before: {
+      src: 'Images/KB-UnQ-july/Image-1 (1).png',
+      cap: 'Before — the Bot cannot answer the customer\'s question and escalates it to a Live Agent',
+      title: 'Frustrating Escalations',
+      desc: 'The Bot can\'t answer the question yet — it escalates to a Live Agent, adding to their workload and making the customer wait.'
+    },
+    after: {
+      src: 'Images/KB-UnQ-july/Image-1 (4).png',
+      cap: 'After — the Bot answers instantly, citing the newly created Knowledge Base source',
+      title: 'Instant AI Resolution',
+      desc: 'The Bot now pulls the verified answer straight from the Knowledge Base and responds in seconds — source cited.'
+    }
+  }
+};
+
+function beforeAfter(id) {
+  const d = BA_DATA[id];
+  const b = d.before;
+  return `<div class="ba-widget" id="${id}" data-active="before">
+    <div class="ba-top">
+      <div class="ba-switch">
+        <button type="button" class="ba-tab active" data-view="before" onclick="setBeforeAfter('${id}','before')">Before</button>
+        <button type="button" class="ba-tab" data-view="after" onclick="setBeforeAfter('${id}','after')">After</button>
+      </div>
+      <div class="ba-metric">${d.metric}</div>
+    </div>
+    <div class="ba-stage" onclick="openBeforeAfterLb('${id}')">
+      <img id="${id}-img" src="${b.src}" alt="${b.cap}" loading="lazy" />
+    </div>
+    <div class="ba-copy">
+      <div class="ba-copy-title" id="${id}-title">${b.title}</div>
+      <div class="ba-copy-desc" id="${id}-desc">${b.desc}</div>
+    </div>
+  </div>`;
+}
+
+function setBeforeAfter(id, view) {
+  const root = document.getElementById(id);
+  if (!root || root.dataset.active === view) return;
+  const data = BA_DATA[id][view];
+  root.querySelectorAll('.ba-tab').forEach(btn => btn.classList.toggle('active', btn.dataset.view === view));
+  const img = document.getElementById(`${id}-img`);
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = data.src;
+    img.alt = data.cap;
+    img.style.opacity = '1';
+  }, 150);
+  document.getElementById(`${id}-title`).textContent = data.title;
+  document.getElementById(`${id}-desc`).textContent = data.desc;
+  root.dataset.active = view;
+}
+
+function openBeforeAfterLb(id) {
+  const root = document.getElementById(id);
+  const view = root ? root.dataset.active : 'before';
+  const data = BA_DATA[id][view];
+  openLb(data.src, data.cap);
 }
 
 /* ─── NAVIGATION ───────────────────────────────────────────────── */
