@@ -5,13 +5,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EngageAI · Product Newsletter · 2026 · v2</title>
-<meta name="description" content="EngageAI monthly product release digest — June 2026 features and beyond." />
+<meta name="description" content="EngageAI monthly product release digest — August 2026 features and beyond." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/svg+xml" href="Images/Logs/engageai-icon.svg" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" />
-Consent-Driven Permission Flow<style>
+<style>
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1010,6 +1010,89 @@ footer a:hover { color: var(--text); }
         </div><!-- /july-expand -->
       </div>
 
+      <div class="month-block">
+        <!-- August 2026 — LIVE -->
+        <div class="mc live" id="mc-aug" onclick="toggleAug()">
+          <div class="mc-m">Aug</div>
+          <div class="mc-y">2026</div>
+          <div class="mc-badge"><span class="live-dot"></span>&nbsp;Live</div>
+          <div class="mc-desc">4 features shipped</div>
+          <i class="ti ti-chevron-right mc-chevron"></i>
+        </div>
+
+        <!-- ── AUGUST 2026 INLINE EXPAND ── -->
+        <div class="may-expand" id="aug-expand">
+          <div class="may-expand-inner">
+
+          <div class="expand-header">
+            <div>
+              <div class="expand-kicker">August 2026 · Release Digest</div>
+              <div class="expand-sub">What shipped this month</div>
+            </div>
+            <div class="expand-count">4 features shipped</div>
+          </div>
+
+          <div class="feature-list">
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-arrow-back-up"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Message Reply &amp; Contextual Conversations</div>
+                <div class="fl-desc">Live Agents can reply directly to any customer, bot, or agent message — with the original message shown alongside the reply, just like WhatsApp.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Threaded Replies</span>
+                  <span class="fl-tag">Message Context</span>
+                  <span class="fl-tag">WhatsApp-Style</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('message-reply-context')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-filter"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Unreplied Conversation Filter</div>
+                <div class="fl-desc">Surface only the active conversations where a customer is still waiting for an agent response — no more scanning every chat manually.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Conversation Filters</span>
+                  <span class="fl-tag">Response Time</span>
+                  <span class="fl-tag">Agent Productivity</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('unreplied-filter')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-calendar-event"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Customer Conversation Date Range Filter</div>
+                <div class="fl-desc">Narrow a customer's historical conversation sessions to a specific period using a calendar-based From and Until date picker.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">Date Range Picker</span>
+                  <span class="fl-tag">Conversation History</span>
+                  <span class="fl-tag">Faster Lookup</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('conversation-date-range')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+
+            <div class="fl-item">
+              <div class="fl-icon"><i class="ti ti-route"></i></div>
+              <div class="fl-body">
+                <div class="fl-title">Area of Speciality-Based Live Agent Routing</div>
+                <div class="fl-desc">Route live agent requests to the right support team based on the customer's topic, product, or intent — instead of notifying every agent.</div>
+                <div class="fl-tags">
+                  <span class="fl-tag">AI Routing</span>
+                  <span class="fl-tag">Specialist Teams</span>
+                  <span class="fl-tag">Smart Notifications</span>
+                </div>
+              </div>
+              <button class="fl-explore" onclick="showFeature('area-of-speciality-routing')">Explore <i class="ti ti-arrow-right"></i></button>
+            </div>
+          </div>
+          </div>
+        </div><!-- /aug-expand -->
+      </div>
+
     </div><!-- /months-row -->
 
   </section>
@@ -1873,6 +1956,206 @@ const FEATURES = {
         </div>
       </div>
     `
+  },
+
+  'message-reply-context': {
+    num: '01',
+    prev: null,
+    next: 'unreplied-filter',
+    month: 'aug',
+    monthLabel: 'August 2026',
+    badge: 'Released',
+    title: 'Message Reply &amp; Contextual Conversations',
+    sub: '<strong>Message Reply &amp; Contextual Conversations</strong> lets Live Agents reply directly to any message in a conversation — the way they already do in WhatsApp, Teams and Slack — so every response carries its own context.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-arrow-back-up"></i> Overview</div>
+        <p class="fdv-p">Previously, agents could only send messages one after another, making it difficult to understand which question or message a response was referring to — especially in long conversations. With this enhancement, agents can reply to a specific customer, bot, or previous agent message, and the original message is displayed along with the reply so both sides understand the context instantly. The feature also supports customer replies received from channels like WhatsApp, letting agents know exactly which message the customer is responding to.</p>
+        ${shot('Images/sprint14_images/contextual_convo.png','Reply to any message — the Reply action on a customer message, and the quoted original shown above the agent&apos;s response')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('Reply to Any Message','Reply directly to any customer, bot, or agent message within an active conversation.')}
+          ${bl('Original Message Shown with the Reply','Display the original message alongside the reply so the context is never lost.')}
+          ${bl('WhatsApp-Style Reply Experience','Bring the familiar reply interaction agents and customers already know into the Agent Portal.')}
+          ${bl('Customer Replies with Full Context','Show customer replies received from WhatsApp with the exact message they responded to.')}
+          ${bl('Navigate Back to the Original','Jump straight back to the original message whenever it is needed.')}
+          ${bl('Context Preserved Across Transfers','Preserve reply relationships even when a conversation moves between agents.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-message-2"></i>','Clearer Conversations','Makes conversations easier to follow for agents and customers alike.')}
+          ${vc('<i class="ti ti-arrows-split"></i>','Less Confusion in Long Chats','Reduces ambiguity in long conversations that cover several topics at once.')}
+          ${vc('<i class="ti ti-bolt"></i>','Faster, More Accurate Replies','Helps agents respond quickly and accurately with the right context already in view.')}
+          ${vc('<i class="ti ti-users-group"></i>','Stronger Collaboration','Improves handovers when multiple agents work on the same conversation.')}
+          ${vc('<i class="ti ti-brand-whatsapp"></i>','Familiar Experience','Provides a messaging experience customers already recognise from WhatsApp.')}
+          ${vc('<i class="ti ti-mood-smile"></i>','Better Customer Experience','Enhances the overall experience through clearer, better-connected conversations.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>Every reply carries its own context.</h3>
+        <p>Message Reply turns a flat stream of messages into a conversation both sides can follow — no more guessing which question an answer belongs to.</p>
+      </div>
+    `
+  },
+
+  'unreplied-filter': {
+    num: '02',
+    prev: 'message-reply-context',
+    next: 'conversation-date-range',
+    month: 'aug',
+    monthLabel: 'August 2026',
+    badge: 'Released',
+    title: 'Unreplied Conversation Filter',
+    sub: 'The <strong>Unreplied filter</strong> lets Live Agents instantly see every active conversation where a customer has sent a message but has not yet received a response — so no one is left waiting.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-filter"></i> Overview</div>
+        <p class="fdv-p">Previously, agents had to manually review multiple active conversations to work out which customers were still waiting for a response. This could result in customer messages being overlooked, particularly when agents were handling several conversations simultaneously. With this enhancement, agents can apply the Unreplied filter to view only the conversations that require their attention, ensuring pending customer messages are addressed promptly.</p>
+        ${shot('Images/sprint14_images/unreplied_conversation_filter.png','The Unreplied filter sits alongside the existing conversation filters — surfacing chats where the customer is still waiting for a reply')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('Dedicated Unreplied Filter','Adds an Unreplied option alongside the existing conversation filters in the Live Agent Portal.')}
+          ${bl('Live Agent Already Engaged','Includes only conversations that a Live Agent has already joined.')}
+          ${bl('Customer&apos;s Latest Message Unanswered','Surfaces conversations where the customer&apos;s most recent message has not been answered by an agent.')}
+          ${bl('Active and Unresolved Only','Limits results to conversations that are still active and unresolved.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-target-arrow"></i>','Spot What Needs Attention','Helps agents immediately identify the conversations that require a response.')}
+          ${vc('<i class="ti ti-shield-check"></i>','Nothing Gets Missed','Reduces the risk of customer messages being overlooked during busy periods.')}
+          ${vc('<i class="ti ti-clock"></i>','Faster Response Times','Improves agent response time and day-to-day operational efficiency.')}
+          ${vc('<i class="ti ti-sort-descending"></i>','Prioritise the Longest Waiting','Makes it easy to prioritise the customers who have been waiting longest.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>No customer left waiting.</h3>
+        <p>One filter turns a crowded inbox into a clear, prioritised list of exactly who needs a reply right now.</p>
+      </div>
+    `
+  },
+
+  'conversation-date-range': {
+    num: '03',
+    prev: 'unreplied-filter',
+    next: 'area-of-speciality-routing',
+    month: 'aug',
+    monthLabel: 'August 2026',
+    badge: 'Released',
+    title: 'Customer Conversation Date Range Filter',
+    sub: 'The <strong>Customer Conversation Date Range Filter</strong> lets Live Agents narrow a customer&apos;s historical conversation sessions to a specific period using a simple From and Until date picker.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-calendar-event"></i> Overview</div>
+        <p class="fdv-p">Previously, all historical conversations for a customer were displayed together, making it difficult and time-consuming for agents to locate conversations from a particular period. With this enhancement, agents can use the calendar-based date picker to define a specific date range and view only the relevant conversations within that period.</p>
+        ${shot('Images/sprint14_images/customer_convo_date_range.png','From and Until date picker — select a range on the calendar, then Save to filter the customer&apos;s conversation history')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('Date Range Picker on Conversation History','Provides a date range picker directly above the customer&apos;s conversation history.')}
+          ${bl('Select From and Until Dates','Define the exact start and end of the period you want to review.')}
+          ${bl('Calendar-Based Selection','Pick dates from a familiar calendar interface with month-to-month navigation.')}
+          ${bl('Save and Reset Controls','Apply the range once it is selected, or reset it to return to the full history.')}
+          ${bl('Filter by Session Start Date','Display only conversation sessions whose start date falls within the selected range.')}
+          ${bl('Scoped to the Selected Customer','Apply the filter only to the currently selected customer&apos;s conversation history.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-search"></i>','Locate Conversations Quickly','Helps agents find historical conversations from a specific period in seconds.')}
+          ${vc('<i class="ti ti-clock"></i>','Less Manual Searching','Removes the need to scroll through extensive conversation histories.')}
+          ${vc('<i class="ti ti-user-search"></i>','Efficient Investigation','Makes customer investigation and follow-up significantly more efficient.')}
+          ${vc('<i class="ti ti-calendar-event"></i>','Review a Specific Period','Lets agents review all interactions tied to a particular date or date range.')}
+          ${vc('<i class="ti ti-layout-grid"></i>','Better Portal Usability','Improves navigation and usability across the Live Agent Portal.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>Find the right conversation, not every conversation.</h3>
+        <p>A date range is often all it takes to turn months of history into the handful of sessions that actually matter.</p>
+      </div>
+    `
+  },
+
+  'area-of-speciality-routing': {
+    num: '04',
+    prev: 'conversation-date-range',
+    next: null,
+    month: 'aug',
+    monthLabel: 'August 2026',
+    badge: 'Released',
+    title: 'Area of Speciality-Based Live Agent Routing',
+    sub: '<strong>Area of Speciality-Based Live Agent Routing</strong> directs live agent requests to the right support team based on the customer&apos;s topic, product, or intent — instead of notifying every available agent.',
+    render: () => `
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-route"></i> Overview</div>
+        <p class="fdv-p">Currently, when a customer requests a live agent, the notification is sent to all configured live agents, regardless of what the customer actually needs. With this enhancement, admins can define Areas of Speciality — each with a name, description, and assigned specialists — and the AI agent uses those definitions to route live agent requests to the right team, while the existing live agent request, notification, queue, and assignment workflow stays exactly as it is.</p>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-settings"></i> Define your areas of speciality</div>
+        <p class="fdv-p">Admins create an area, describe what it covers in plain language, assign the specialists who handle it, and switch it active. That description is what the AI matches against — so clear, specific wording routes more accurately.</p>
+        <div class="shot-grid shot-grid-match">
+          ${shotRaw('Images/sprint14_images/area_of_speciality.png','With no areas defined, every live-agent request continues to be routed to all agents')}
+          ${shotRaw('Images/sprint14_images/area_of_speciality2.png','A configured set of areas — each with a description, assigned specialists and an active status')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-messages"></i> AI routing in action</div>
+        <p class="fdv-p">When a customer asks for help, the AI identifies the topic from the conversation, matches it to the right area, and connects the customer to a specialist from that team — telling them exactly who is taking over.</p>
+        ${shot('Images/sprint14_images/area_of_speciality3.png','The AI recognises an imaging equipment issue and routes the request to the GE Healthcare imaging support team','shot-narrow')}
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-circle-check"></i> Key capabilities</div>
+        <div class="bullets">
+          ${bl('Define Areas of Speciality','Create areas with a clear, specific name such as "Billing Support".')}
+          ${bl('Describe What Each Area Covers','Write a description the AI uses to route requests accurately — for example, "Handles all billing, invoicing and payment-related queries".')}
+          ${bl('Assign Specialists','Nominate one or more agents to handle the conversations routed to each area.')}
+          ${bl('Activate or Pause with a Status Toggle','Only active areas are considered when matching requests to agents.')}
+          ${bl('AI-Based Topic Identification','Identify the customer&apos;s topic, product, or intent from bot conversation context, intent, outcome, product metadata, or AI classification.')}
+          ${bl('Match Intent to the Right Area','Compare the identified topic against each active area&apos;s description to determine the best routing target.')}
+          ${bl('Route Around Availability','Consider agent availability among the assigned specialists when routing and notifying.')}
+          ${bl('Notify Only the Right Specialists','Send the request to the matched area&apos;s specialists instead of every live agent.')}
+          ${bl('Built-In Fallback Behaviour','If no areas are configured, or no match is found, requests fall back to the existing all-agent routing.')}
+          ${bl('Full Context on Handover','Pass the relevant customer and conversation context through to the receiving agent.')}
+        </div>
+      </div>
+
+      <div class="fdv-section">
+        <div class="fdv-sh"><i class="ti ti-chart-bar"></i> Business value</div>
+        <div class="vcards">
+          ${vc('<i class="ti ti-route"></i>','Right Team, First Time','Ensures customer requests reach the appropriate support team faster.')}
+          ${vc('<i class="ti ti-bell-off"></i>','Fewer Irrelevant Notifications','Stops unrelated live agents from being pulled into every incoming request.')}
+          ${vc('<i class="ti ti-trending-up"></i>','Higher Agent Productivity','Improves productivity by reducing the irrelevant requests reaching each agent.')}
+          ${vc('<i class="ti ti-building-factory-2"></i>','Organised Support Operations','Creates a more structured and efficient support experience across teams.')}
+          ${vc('<i class="ti ti-arrow-up-right"></i>','Scales as You Grow','Admins can add new Areas of Speciality as the business expands — with no code changes.')}
+        </div>
+      </div>
+
+      <div class="impact">
+        <h3>The right specialist, matched by AI.</h3>
+        <p>Areas of Speciality turn a broadcast to every agent into a precise handover to the team that can actually help — and it scales by adding a row, not by shipping code.</p>
+      </div>
+    `
   }
 
 };
@@ -1987,7 +2270,8 @@ function monthSections() {
   return {
     may: { ex: document.getElementById('may-expand'), mc: document.getElementById('mc-may') },
     june: { ex: document.getElementById('june-expand'), mc: document.getElementById('mc-june') },
-    july: { ex: document.getElementById('july-expand'), mc: document.getElementById('mc-july') }
+    july: { ex: document.getElementById('july-expand'), mc: document.getElementById('mc-july') },
+    aug: { ex: document.getElementById('aug-expand'), mc: document.getElementById('mc-aug') }
   };
 }
 
@@ -2047,6 +2331,7 @@ function toggleMonth(month) {
 function toggleMay() { toggleMonth('may'); }
 function toggleJune() { toggleMonth('june'); }
 function toggleJuly() { toggleMonth('july'); }
+function toggleAug() { toggleMonth('aug'); }
 
 /* ─── SCALE HTML POSTER IFRAME ─────────────────────────────────── */
 function scaleWaPoster() {
