@@ -1036,7 +1036,7 @@ footer a:hover { color: var(--text); }
             <div class="fl-item">
               <div class="fl-icon"><i class="ti ti-arrow-back-up"></i></div>
               <div class="fl-body">
-                <div class="fl-title">Message Reply &amp; Contextual Conversations</div>
+                <div class="fl-title">WhatsApp-Style Message Replies</div>
                 <div class="fl-desc">Live Agents can reply directly to any customer, bot, or agent message — with the original message shown alongside the reply, just like WhatsApp.</div>
                 <div class="fl-tags">
                   <span class="fl-tag">Threaded Replies</span>
@@ -1064,7 +1064,7 @@ footer a:hover { color: var(--text); }
             <div class="fl-item">
               <div class="fl-icon"><i class="ti ti-calendar-event"></i></div>
               <div class="fl-body">
-                <div class="fl-title">Customer Conversation Date Range Filter</div>
+                <div class="fl-title">Filter Conversations by Date</div>
                 <div class="fl-desc">Narrow a customer's historical conversation sessions to a specific period using a calendar-based From and Until date picker.</div>
                 <div class="fl-tags">
                   <span class="fl-tag">Date Range Picker</span>
@@ -1078,7 +1078,7 @@ footer a:hover { color: var(--text); }
             <div class="fl-item">
               <div class="fl-icon"><i class="ti ti-route"></i></div>
               <div class="fl-body">
-                <div class="fl-title">Area of Speciality-Based Live Agent Routing</div>
+                <div class="fl-title">Topic-Aware Live Agent Routing</div>
                 <div class="fl-desc">Route live agent requests to the right support team based on the customer's topic, product, or intent — instead of notifying every agent.</div>
                 <div class="fl-tags">
                   <span class="fl-tag">AI Routing</span>
@@ -1965,13 +1965,13 @@ const FEATURES = {
     month: 'aug',
     monthLabel: 'August 2026',
     badge: 'Released',
-    title: 'Message Reply &amp; Contextual Conversations',
-    sub: '<strong>Message Reply &amp; Contextual Conversations</strong> lets Live Agents reply directly to any message in a conversation — the way they already do in WhatsApp, Teams and Slack — so every response carries its own context.',
+    title: 'WhatsApp-Style Message Replies',
+    sub: '<strong>WhatsApp-Style Message Replies</strong> let Live Agents reply directly to any message in a conversation — the way they already do in WhatsApp, Teams and Slack — so every response carries its own context.',
     render: () => `
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-arrow-back-up"></i> Overview</div>
         <p class="fdv-p">Previously, agents could only send messages one after another, making it difficult to understand which question or message a response was referring to — especially in long conversations. With this enhancement, agents can reply to a specific customer, bot, or previous agent message, and the original message is displayed along with the reply so both sides understand the context instantly. The feature also supports customer replies received from channels like WhatsApp, letting agents know exactly which message the customer is responding to.</p>
-        ${shot('Images/sprint14_images/contextual_convo.png','Reply to any message — the Reply action on a customer message, and the quoted original shown above the agent&apos;s response')}
+        ${shot('https://inflowsaasdevtestsa.blob.core.windows.net/newslettersa/convo/contextual_convo.png','Reply to any message — the Reply action on a customer message, and the quoted original shown above the agent&apos;s response')}
       </div>
 
       <div class="fdv-section">
@@ -2018,7 +2018,7 @@ const FEATURES = {
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-filter"></i> Overview</div>
         <p class="fdv-p">Previously, agents had to manually review multiple active conversations to work out which customers were still waiting for a response. This could result in customer messages being overlooked, particularly when agents were handling several conversations simultaneously. With this enhancement, agents can apply the Unreplied filter to view only the conversations that require their attention, ensuring pending customer messages are addressed promptly.</p>
-        ${shot('Images/sprint14_images/unreplied_conversation_filter.png','The Unreplied filter sits alongside the existing conversation filters — surfacing chats where the customer is still waiting for a reply')}
+        ${shot('https://inflowsaasdevtestsa.blob.core.windows.net/newslettersa/convo/unreplied_conversation_filter.png','The Unreplied filter sits alongside the existing conversation filters — surfacing chats where the customer is still waiting for a reply')}
       </div>
 
       <div class="fdv-section">
@@ -2055,13 +2055,13 @@ const FEATURES = {
     month: 'aug',
     monthLabel: 'August 2026',
     badge: 'Released',
-    title: 'Customer Conversation Date Range Filter',
-    sub: 'The <strong>Customer Conversation Date Range Filter</strong> lets Live Agents narrow a customer&apos;s historical conversation sessions to a specific period using a simple From and Until date picker.',
+    title: 'Filter Conversations by Date',
+    sub: '<strong>Filter Conversations by Date</strong> lets Live Agents narrow a customer&apos;s historical conversation sessions to a specific period using a simple From and Until date picker.',
     render: () => `
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-calendar-event"></i> Overview</div>
         <p class="fdv-p">Previously, all historical conversations for a customer were displayed together, making it difficult and time-consuming for agents to locate conversations from a particular period. With this enhancement, agents can use the calendar-based date picker to define a specific date range and view only the relevant conversations within that period.</p>
-        ${shot('Images/sprint14_images/customer_convo_date_range.png','From and Until date picker — select a range on the calendar, then Save to filter the customer&apos;s conversation history')}
+        ${shot('https://inflowsaasdevtestsa.blob.core.windows.net/newslettersa/convo/customer_convo_date_range.png','From and Until date picker — select a range on the calendar, then Save to filter the customer&apos;s conversation history')}
       </div>
 
       <div class="fdv-section">
@@ -2101,8 +2101,8 @@ const FEATURES = {
     month: 'aug',
     monthLabel: 'August 2026',
     badge: 'Released',
-    title: 'Area of Speciality-Based Live Agent Routing',
-    sub: '<strong>Area of Speciality-Based Live Agent Routing</strong> directs live agent requests to the right support team based on the customer&apos;s topic, product, or intent — instead of notifying every available agent.',
+    title: 'Topic-Aware Live Agent Routing',
+    sub: '<strong>Topic-Aware Live Agent Routing</strong> directs live agent requests to the right support team based on the customer&apos;s topic, product, or intent — instead of notifying every available agent.',
     render: () => `
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-route"></i> Overview</div>
@@ -2113,15 +2113,15 @@ const FEATURES = {
         <div class="fdv-sh"><i class="ti ti-settings"></i> Define your areas of speciality</div>
         <p class="fdv-p">Admins create an area, describe what it covers in plain language, assign the specialists who handle it, and switch it active. That description is what the AI matches against — so clear, specific wording routes more accurately.</p>
         <div class="shot-grid shot-grid-match">
-          ${shotRaw('Images/sprint14_images/area_of_speciality.png','With no areas defined, every live-agent request continues to be routed to all agents')}
-          ${shotRaw('Images/sprint14_images/area_of_speciality2.png','A configured set of areas — each with a description, assigned specialists and an active status')}
+          ${shotRaw('https://inflowsaasdevtestsa.blob.core.windows.net/newslettersa/convo/area_of_speciality.png','With no areas defined, every live-agent request continues to be routed to all agents')}
+          ${shotRaw('https://inflowsaasdevtestsa.blob.core.windows.net/newslettersa/convo/area_of_speciality2.png','A configured set of areas — each with a description, assigned specialists and an active status')}
         </div>
       </div>
 
       <div class="fdv-section">
         <div class="fdv-sh"><i class="ti ti-messages"></i> AI routing in action</div>
         <p class="fdv-p">When a customer asks for help, the AI identifies the topic from the conversation, matches it to the right area, and connects the customer to a specialist from that team — telling them exactly who is taking over.</p>
-        ${shot('Images/sprint14_images/area_of_speciality3.png','The AI recognises an imaging equipment issue and routes the request to the GE Healthcare imaging support team','shot-narrow')}
+        ${shot('https://inflowsaasdevtestsa.blob.core.windows.net/newslettersa/convo/area_of_speciality3.png','The AI recognises an imaging equipment issue and routes the request to the GE Healthcare imaging support team','shot-narrow')}
       </div>
 
       <div class="fdv-section">
