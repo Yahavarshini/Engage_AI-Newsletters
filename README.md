@@ -12,6 +12,6 @@ Root: `https://yahavarshini.github.io/newsletters/`
 |-------|------------|
 | August 2026 | [View](https://yahavarshini.github.io/newsletters/) |
 
-## GitHub Pages Setup
+## GitHub Pages Setup.
 
 Go to **Settings -> Pages -> Source: Deploy from branch `main` / `/ (root)`**
