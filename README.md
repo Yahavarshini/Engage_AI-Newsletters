@@ -10,7 +10,7 @@ Root: `https://yahavarshini.github.io/newsletters/`
 
 | Month | Newsletter |
 |-------|------------|
-| June 2026 | [View](https://yahavarshini.github.io/newsletters/) |
+| August 2026 | [View](https://yahavarshini.github.io/newsletters/) |
 
 ## GitHub Pages Setup
 
